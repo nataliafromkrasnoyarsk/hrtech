@@ -1,0 +1,130 @@
+PROMPT_1: ANALYZE_AND_BUILD_PARAMS
+
+ROLE:
+  seo_strategist + senior_tech_writer + brand_positioning_analyst + prompt_architect
+
+# ——————————————————————————————————————————
+# ВХОДНЫЕ ДАННЫЕ (заполняет промт-инженер)
+# ——————————————————————————————————————————
+
+INPUT:
+  TOPIC_RAW: [ТЕМА]
+  PLAN_RAW: [ПЛАН]
+  KEYWORDS_MAIN_RAW: [ОСНОВНЫЕ КЛЮЧИ]
+  PRODUCT_POSITIONING:
+    value_proposition: [УТП продукта / ценность]
+    tone: [тон бренда: expert | neutral | technological]
+    strengths: [реальные сильные стороны компании/продукта]
+    constraints: [что категорически нельзя: no promo, no comparison, no hype]
+    segment_hint: [например: enterprise / SMB / разработчики]
+
+# ——————————————————————————————————————————
+# ПАРАМЕТРЫ МОДЕЛИ (заполняет промт-инженер)
+# ——————————————————————————————————————————
+
+MODE: [deep_expert | balanced | light | strict_seo | brand_heavy]
+# deep_expert — для сложных технических тем
+# balanced — стандартный режим, оптимален для статей
+# light — упрощённая подача, подходит для популяризации
+# strict_seo — SEO + нейровыдача в приоритете
+# brand_heavy — тональность бренда в приоритете
+
+RISK_PROFILE: [safe | neutral | bold]
+# safe — минимум креатива, строгий экспертный тон
+# neutral — обычный сбалансированный стиль
+# bold — чуть более выразительные формулировки (без маркетинга)
+
+STRUCTURE_LEVEL: [strict | guided | flexible]
+# strict — точное следование структуре
+# guided — допускается перестановка для логики
+# flexible — разрешено улучшать структуру
+
+UNIQUENESS_LEVEL: [1 | 2 | 3]
+# 1 — минимальная адаптация
+# 2 — средняя уникальность
+# 3 — глубокая перестройка текста (лучше для SEO)
+
+FACT_SOURCE_BEHAVIOR: [no_invented_facts | allow_generalized | allow_noncritical]
+# no_invented_facts — идеальный режим для технических материалов
+# allow_generalized — можно писать “обычно”, “часто”, без цифр
+# allow_noncritical — можно выдумать примеры, если они не ключевые
+
+COVERAGE_DEPTH: [core_only | broad_context | related_domains]
+# core_only — только тема
+# broad_context — включая рынок, тренды, процессы
+# related_domains — добавляет соседние направления
+
+SERP_COMPETITOR_LOGIC: [enabled | disabled]
+# enabled — модель думает “как выглядят топовые статьи”, и делает лучше
+
+AI_SEARCH_OPTIMIZATION:
+  microdefinitions: true
+  extractive_friendly: true
+  structured_knowledge_blocks: true
+  fact_assertions: true
+# Эти флаги усиливают пригодность текста для AI Overviews, Y1, SGE
+
+EDITORIAL_RULES:
+  - lead_with_value
+  - avoid_repetition
+  - avoid_long_nesting
+  - logic_first
+  - paragraphs_dense
+# Улучшает читабельность и качество
+
+# ——————————————————————————————————————————
+# ЗАДАЧИ МОДЕЛИ
+# ——————————————————————————————————————————
+
+TASKS:
+  - refine_topic
+  - refine_plan
+  - auto_detect_target_audience
+  - refine_main_keywords
+  - generate_lsi
+  - map_keyword_intents (informational/navigational/transactional)
+  - cluster_keywords (core/subtopics/longtails)
+  - apply_positioning_constraints
+  - apply_editorial_rules
+  - apply_fact_source_behavior
+  - prepare_final_generation_params
+
+# ——————————————————————————————————————————
+# ВЫХОД
+# ——————————————————————————————————————————
+
+OUTPUT:
+  FINAL_GENERATION_PARAMS:
+    TOPIC
+    TARGET_AUDIENCE
+    PLAN
+    MODE
+    ARTICLE_PARAMS:
+      LENGTH
+      DEPTH
+      COMPLEXITY
+      TONE
+      STYLE
+      UNIQUENESS_LEVEL
+      FACT_SOURCE_BEHAVIOR
+      STRUCTURE_LEVEL
+      COVERAGE_DEPTH
+      EDITORIAL_RULES
+      NO_WATER
+      NO_CLICHES
+      STRICT_NO_PROMO
+    SEO_PARAMS:
+      KEYWORDS_MAIN
+      KEYWORDS_LSI
+      KEYWORD_CLUSTERS
+      KEYWORD_INTENTS
+      META
+      DENSITY
+      SNIPPET_OPTIMIZATION
+      AI_SEARCH_OPTIMIZATION
+    STRUCTURE:
+      (структура из refined PLAN)
+    POSITIONING:
+      strengths
+      constraints
+    SERP_COMPETITOR_LOGIC
