@@ -2,7 +2,7 @@
 
 # Для создания SEO-статей
 
-**[ПРОМТ 1 — Аналитик → Архитектор параметров → выдаёт FINAL_GENERATION_PARAMS]([url](https://github.com/levashove/promt-contents/blob/main/prompt_seo_1_analyze_and_build_params.yaml))**
+**[ПРОМТ 1 — Аналитик → Архитектор параметров → выдаёт FINAL_GENERATION_PARAMS](https://github.com/levashove/promt-contents/blob/main/prompt_seo_1_analyze_and_build_params.yaml)**
 
 На входе заполняем: тему, план, ключевые слова, позиционирование, тональность и остальные параметры:
 ➡️ нужно выбирать вручную — MODE, RISK_PROFILE, STRUCTURE_LEVEL, UNIQUENESS_LEVEL, FACT_SOURCE_BEHAVIOR, COVERAGE_DEPTH, SERP_COMPETITOR_LOGIC. 
