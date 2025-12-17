@@ -791,7 +791,7 @@ devsecops:
     - Policy Enforcement — формализация стандартов безопасности
   depth: deep
   adoption_stats:
-    global: "72% компаний внедрили DevSecOps полностью или частично"
+    global: "77% компаний внедрили DevSecOps полностью или частично (State of DevOps Russia 2025)"
 
 incident_response:
   topics:
@@ -980,7 +980,7 @@ cloud_security_overview:
 
 **Для статей про DevSecOps:**
 ```markdown
-1. Введение: почему безопасность должна быть частью разработки (72% компаний уже внедрили DevSecOps)
+1. Введение: почему безопасность должна быть частью разработки (77% компаний уже внедрили DevSecOps)
 2. Что такое DevSecOps — определение и эволюция от DevOps
 3. 6 этапов DevSecOps-конвейера
    - Plan: оценка рисков и модель угроз в плане
@@ -1037,11 +1037,9 @@ attack_statistics_2025:
   comparison: "Больше инцидентов, чем за 2023 и 2024 годы вместе"
 
   attack_goals:
-    data_theft: "61% атак направлены на кражу данных с выкупом или продажей"
-    targets: "76% атак целятся в облачные базы данных и объектные хранилища"
+    data_theft: "61% атак направлены на кражу данных с выкупом или продажей (Коммерсантъ, Nubes)"
 
   attack_vectors:
-    phishing: "50% атак на промышленные предприятия начинаются с фишинга"
     misconfiguration: "43% утечек из-за неправильной настройки доступа"
     human_factor: "44% утечек в 2024 году — неумышленные действия сотрудников"
 
@@ -1078,20 +1076,19 @@ general_stats:
 cloud_security_stats:
   - "Неправильная конфигурация — причина 65-70% инцидентов в облаке"
   - "Только 23% компаний имеют полную видимость своих облачных активов"
-  - "MFA блокирует 99.9% автоматизированных атак на учётные записи"
+  - "MFA блокирует 99.9% автоматизированных атак на учётные записи (Microsoft)"
   - "Среднее время реагирования на инцидент в облаке — 72 часа"
-  - "105 млн кибератак на облачные сервисы РФ за 8 месяцев 2025"
-  - "61% атак направлены на кражу данных"
-  - "76% атак целятся в базы данных и объектные хранилища"
+  - "105 млн кибератак на облачные сервисы РФ за 8 месяцев 2025 (Коммерсантъ, Nubes)"
+  - "61% атак направлены на кражу данных (Коммерсантъ, Nubes)"
 
 market_stats:
   - "50%+ российских компаний используют облачные решения"
   - "85% организаций мира в 2025 году следуют стратегии cloud-first (Gartner)"
   - "Рынок IaaS/PaaS в России вырос на 60% с 2022 по 2024 год"
-  - "~30% российских компаний используют Zero Trust"
-  - "72% компаний внедрили DevSecOps полностью или частично"
-  - "65% SMB полностью внедрили практики DevSecOps (март 2025)"
-  - "60%+ компаний передали функции ИБ на аутсорсинг (MSSP)"
+  - "20-30% российских компаний внедряют Zero Trust (ComNews, Т1 Интеграция)"
+  - "77% компаний внедрили DevSecOps полностью или частично (State of DevOps Russia 2025)"
+  - "67% компаний интегрировали DevSecOps в пайплайны (State of DevOps Russia 2025)"
+  - "60%+ компаний передали функции ИБ на аутсорсинг (MSSP) (Информзащита)"
 
 note: >
   Используй статистику осторожно. Если нет уверенности в актуальности —
@@ -1361,8 +1358,8 @@ devsecops:
     и создания ценности для бизнеса.
 
   adoption:
-    stat_2025: "72% российских компаний полностью или частично внедрили инструменты безопасной разработки"
-    smb_stat: "65% SMB полностью внедрили DevSecOps (март 2025)"
+    stat_2025: "77% российских компаний полностью или частично внедрили инструменты безопасной разработки (State of DevOps Russia 2025)"
+    integration_stat: "67% компаний интегрировали DevSecOps в пайплайны (State of DevOps Russia 2025)"
 
   tools:
     - "SAST — статический анализ кода"
@@ -2862,7 +2859,7 @@ threats_2025:
 
     phishing:
       description: "Фишинговые атаки"
-      stat: "50% атак на промышленные предприятия начинаются с фишинга"
+      note: "Один из ключевых векторов атак на облачную инфраструктуру"
 
     ransomware:
       description: "Программы-вымогатели"
@@ -2980,4 +2977,84 @@ content_enhancement:
   - Включать примеры конфигураций (без секретов)
   - Ссылаться на официальную документацию VK Cloud
   - Упоминать релевантные стандарты (NIST, CIS, OWASP)
+```
+
+---
+
+## SOURCES & REFERENCES
+
+### Верифицированные источники статистики
+
+```yaml
+statistics_sources:
+  attack_statistics_2025:
+    stat: "105 млн кибератак на облачные сервисы РФ за 8 месяцев 2025"
+    source: "Nubes (облачный провайдер)"
+    media: "Коммерсантъ"
+    url: "https://www.kommersant.ru/doc/8005344"
+    date: "2025"
+
+  attack_goals:
+    stat: "61% атак направлены на кражу данных"
+    source: "Nubes"
+    media: "Коммерсантъ"
+    url: "https://www.kommersant.ru/doc/8005183"
+
+  devsecops_adoption:
+    stat: "77% компаний внедрили DevSecOps"
+    source: "Экспресс 42 + Positive Technologies"
+    research: "State of DevOps Russia 2025"
+    url: "https://www.anti-malware.ru/news/2025-11-06-111332/47947"
+
+  devsecops_integration:
+    stat: "67% компаний интегрировали DevSecOps в пайплайны"
+    source: "Экспресс 42 + Positive Technologies"
+    research: "State of DevOps Russia 2025"
+
+  human_factor:
+    stat: "44% утечек — неумышленные действия сотрудников"
+    source: "InfoWatch"
+    url: "https://www.infowatch.ru/analytics/daydzhesty-i-obzory/ofitsery-bezopasnosti-opasayutsya-utechek-dannykh-iz-za-oshibok"
+    year: "2024"
+
+  zero_trust_adoption:
+    stat: "20-30% российских компаний внедряют Zero Trust"
+    sources:
+      - "ComNews"
+      - "Т1 Интеграция"
+      - "НОТА Купол"
+    url: "https://www.comnews.ru/content/235915/2024-10-25/2024-w43/1008/koncepciya-zero-trust-aktualna-no-ne-ispolzuetsya-massovo"
+
+  mssp_adoption:
+    stat: "60%+ компаний хотя бы раз передавали функции ИБ на аутсорсинг"
+    source: "Информзащита"
+    url: "https://safe.cnews.ru/news/line/2025-02-18_autsorsing_ib_nabiraet_populyarnost"
+
+  mfa_effectiveness:
+    stat: "MFA блокирует 99.9% автоматизированных атак"
+    source: "Microsoft Security"
+
+  cloud_first:
+    stat: "85% организаций мира следуют стратегии cloud-first"
+    source: "Gartner"
+    year: "2025"
+
+regulatory_sources:
+  fz_152:
+    name: "Федеральный закон №152-ФЗ «О персональных данных»"
+    amendments: "Поправки от 1 сентября 2025"
+
+  rkn_140:
+    name: "Приказ Роскомнадзора №140"
+    topic: "Методы обезличивания персональных данных"
+
+  nist_sp_800_207:
+    name: "NIST SP 800-207"
+    topic: "Zero Trust Architecture"
+    status: "Международный стандарт"
+
+  kii_law:
+    name: "Закон о КИИ"
+    effective: "1 января 2025"
+    requirement: "Переход госорганов и КИИ на отечественное ПО"
 ```
