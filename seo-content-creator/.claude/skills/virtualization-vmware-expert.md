@@ -605,6 +605,191 @@ vk_cloud:
     - "Архитектура, изначально спроектированная под российскую регуляторику"
     - "Понятная дорожная карта развития"
     - "Живая команда разработки внутри страны"
+
+  positioning:
+    risk_mitigation:
+      - "Снять риски ИБ — ответственность за патчи, обновления и защиту на стороне провайдера"
+      - "Избежать лицензионных проблем — не нужно разбираться с VCF 9, минимумом 72 ядер"
+      - "Не развивать экспертизу в новой виртуализации — привычные ВМ через API/UI"
+      - "Соответствовать регуляторике — аттестаты 152-ФЗ (УЗ-1) и сертификаты ФСТЭК"
+```
+
+### Сертификация и безопасность VK Cloud
+
+```yaml
+vk_cloud_certifications:
+  152_fz:
+    level: "УЗ-1 (максимальный)"
+    description: "Максимальный уровень защищённости персональных данных"
+    capability: "Можно размещать любые ПДн, включая биометрию"
+    press_release: "vk.company/ru/press/releases/11271"
+
+  fstec:
+    level: "4 уровень доверия"
+    capability:
+      - "КИИ 1 категории"
+      - "ГИС К-1"
+      - "ИСПДн УЗ-1"
+    private_cloud_press: "vk.company/ru/press/releases/11864"
+
+  iso_27001:
+    version: "ISO/IEC 27001:2022"
+    note: "Одна из первых российских компаний с новой версией стандарта"
+
+  gost_57580:
+    name: "ГОСТ Р 57580.1-2017"
+    level: "Первый (усиленный) уровень защиты"
+    target: "Финансовые организации и FinTech"
+
+  pci_dss:
+    capability: "Безопасная работа с данными платёжных карт"
+```
+
+### Ключевые сервисы VK Cloud
+
+```yaml
+vk_cloud_services:
+  cloud_servers:
+    name: "Cloud Servers (IaaS)"
+    description: "Виртуальные машины Linux/Windows"
+    features:
+      - "Гибкий выбор конфигураций"
+      - "Репликация дисков"
+      - "Посекундная тарификация"
+    processors: "Intel Xeon Gold 6230/6238R"
+    docs: "cloud.vk.com/docs/base/iaas"
+    quick_start: "cloud.vk.com/docs/base/iaas/quick-start"
+    terraform: "cloud.vk.com/docs/tools/terraform"
+
+  cloud_containers:
+    name: "Cloud Containers (Kubernetes)"
+    description: "Managed Kubernetes с сертификацией CNCF"
+    unique: "Единственный в России провайдер с Certified Kubernetes — Hosted"
+    features:
+      - "Автомасштабирование кластера до 100 серверов"
+      - "Совместимость со стандартным Kubernetes API"
+      - "Поддержка Helm, Terraform, GitLab CI/CD"
+      - "Три зоны доступности для отказоустойчивости"
+    docs: "cloud.vk.com/docs/base/k8s"
+
+  cloud_databases:
+    name: "Cloud Databases (DBaaS)"
+    description: "Управляемые базы данных"
+    engines:
+      - "PostgreSQL"
+      - "MySQL"
+      - "MongoDB"
+      - "ClickHouse"
+      - "Tarantool"
+    features:
+      - "Запуск за 2 минуты"
+      - "Автоматическое резервное копирование"
+      - "Конфигурации: Single, Master-Replica, Кластер"
+      - "Геораспределённые реплики"
+      - "Мониторинг и логирование из коробки"
+    docs: "cloud.vk.com/docs/dbs/dbaas"
+
+  object_storage:
+    name: "Object Storage (S3)"
+    description: "Объектное хранилище с S3 API"
+    reliability: "99,99999%"
+    storage_classes:
+      - "Hotbox (горячие данные)"
+      - "Icebox (холодные данные)"
+    features:
+      - "Совместимость с AWS S3 API"
+      - "Object Lock для защиты от удаления"
+      - "Lifecycle-политики для автоматизации"
+      - "Входящий трафик бесплатно"
+    docs: "cloud.vk.com/docs/base/s3"
+
+  private_cloud:
+    name: "Private Cloud"
+    description: "Платформа для построения частного облака на мощностях заказчика"
+    certification: "ФСТЭК 4 уровень доверия"
+    supported_os:
+      - "РЕД ОС"
+      - "Alt Linux"
+      - "Astra"
+```
+
+### Инструменты миграции VK Cloud
+
+```yaml
+vk_cloud_migration:
+  live_cloud_migration:
+    name: "Live Cloud Migration"
+    description: "Автоматизированный сервис для переноса ВМ без остановки приложений"
+    supported:
+      - "VMware vSphere 5.5 и выше"
+      - "Физические серверы (x86, Linux/Windows)"
+    tool: "Хайстекс Акура (в маркетплейсе VK Cloud)"
+    pricing: "Бесплатная базовая миграция"
+    docs: "cloud.vk.com/docs/additionals/migration/migrate-vmware"
+
+  manual_migration:
+    name: "Ручная миграция VMware → VK Cloud"
+    steps:
+      - step: 1
+        action: "Подготовить ВМ: удалить VMware Tools, настроить сеть через netplan"
+      - step: 2
+        action: "Экспортировать ВМ в OVF (получить .vmdk)"
+      - step: 3
+        action: "Конвертировать .vmdk в .raw: qemu-img convert"
+      - step: 4
+        action: "Загрузить образ в VK Cloud через OpenStack CLI"
+      - step: 5
+        action: "Создать ВМ из импортированного образа"
+```
+
+### Технические особенности VK Cloud
+
+```yaml
+vk_cloud_infrastructure:
+  datacenters:
+    tier: "Tier III"
+    sla: "99,95% с финансовыми гарантиями"
+    billing: "Посекундная тарификация"
+    support: "24/7"
+
+  management:
+    - "Личный кабинет (веб-интерфейс)"
+    - "OpenStack API"
+    - "Terraform Provider (собственный, полная совместимость с API)"
+    - "AWS CLI для S3"
+
+  vs_vmware:
+    vmware_vcf9:
+      - "Минимум 72 ядра"
+      - "Подписка 3–5 лет"
+      - "Рост цен 800–1500%"
+    vk_cloud:
+      - "Посекундная тарификация"
+      - "Без минимумов по ядрам"
+      - "Гибкие условия"
+```
+
+### Ссылки VK Cloud для статей
+
+```yaml
+vk_cloud_links:
+  documentation:
+    main: "cloud.vk.com/docs"
+    iaas: "cloud.vk.com/docs/base/iaas"
+    kubernetes: "cloud.vk.com/docs/base/k8s"
+    databases: "cloud.vk.com/docs/dbs/dbaas"
+    s3: "cloud.vk.com/docs/base/s3"
+    terraform: "cloud.vk.com/docs/tools/terraform"
+    vmware_migration: "cloud.vk.com/docs/additionals/migration/migrate-vmware"
+
+  landing_pages:
+    main: "cloud.vk.com"
+    fz152: "cloud.vk.com/solutions/152-fz"
+    iaas: "cloud.vk.com/cloud-servers"
+
+  press_releases:
+    uz1_attestation: "vk.company/ru/press/releases/11271"
+    fstec_private_cloud: "vk.company/ru/press/releases/11864"
 ```
 
 ### Преимущества перехода во VK Cloud
@@ -1060,6 +1245,95 @@ key_messages:
       - "Инвентаризация → Проектирование → dev/test → бизнес-сервисы → критичный прод"
       - "Чем раньше начать — тем спокойнее ближайшие годы"
       - "Планомерная эволюция вместо пожаротушения"
+```
+
+### Готовые месседжи для типовых статей
+
+```yaml
+article_templates:
+  ib_risks_without_support:
+    title: "ИБ-риски без поддержки VMware"
+    key_points:
+      - "vSphere 7 без поддержки с октября 2025, vSphere 8 — с октября 2027"
+      - "Без патчей уязвимости накапливаются (CVE-2024-38812 с CVSS 9.8)"
+      - "Компрометация гипервизора = доступ ко всем ВМ на хосте"
+      - "Переход в облако VK Cloud: ответственность за ИБ на провайдере"
+    cta: "VK Cloud берёт на себя патчи, обновления и защиту инфраструктуры"
+
+  vcsp_end:
+    title: "Конец VMware Cloud Director / VCSP"
+    key_points:
+      - "Broadcom закрывает VCSP 31 октября 2025"
+      - "Число партнёров: с 4 500+ до 13"
+      - "VCF 9: минимум 72 ядра, подписка 3–5 лет, рост цен 800–1500%"
+    vk_cloud_advantage: "Посекундная тарификация, без минимумов по ядрам"
+
+  import_substitution:
+    title: "Импортозамещение виртуализации"
+    key_points:
+      - "До 2022: зарубежные вендоры контролировали ~95% рынка"
+      - "Сейчас: доля российских решений по установленной базе не превышает 15%"
+      - "Российский рынок виртуализации: ₽14,4 млрд в 2024"
+    vk_cloud_advantage: "Российская платформа с сертификатами ФСТЭК и 152-ФЗ"
+
+  vmware_vs_vk_cloud:
+    title: "VMware vs VK Cloud: сравнение"
+    comparison:
+      licensing:
+        vmware: "VCF 9: минимум 72 ядра, подписка 3–5 лет"
+        vk_cloud: "Посекундная тарификация, без минимумов"
+      support:
+        vmware: "Приостановлена в России с 2022"
+        vk_cloud: "24/7, локальная команда"
+      certification:
+        vmware: "Не в реестре Минцифры"
+        vk_cloud: "152-ФЗ УЗ-1, ФСТЭК, ГОСТ Р 57580.1"
+      migration:
+        vmware: "Апгрейд невозможен легально"
+        vk_cloud: "Live Cloud Migration бесплатно"
+```
+
+### Факты для подтверждения (с источниками)
+
+```yaml
+facts_with_sources:
+  vmware_support:
+    fact: "vSphere 7.x End of General Support — 2 октября 2025"
+    source: "VMware Blogs"
+
+    fact: "vSphere 8.0 End of General Support — 11 октября 2027"
+    source: "invgate.com"
+
+  russian_market:
+    fact: "58% российских компаний в 2025 году продолжают использовать VMware"
+    source: "Исследование «Код Безопасности»"
+
+    fact: "Доля российских решений — не более 15% установленной базы"
+    source: "Аналитика рынка"
+
+    fact: "Рынок виртуализации РФ — ₽14,4 млрд в 2024"
+    source: "iKS-Consulting"
+
+  vcsp_changes:
+    fact: "Broadcom закрывает VCSP 31 октября 2025"
+    source: "VMware Blogs"
+
+    fact: "Число VCSP-партнёров сократилось с 4 500+ до 13"
+    source: "Broadcom announcements"
+
+  vk_cloud:
+    fact: "VK Cloud имеет аттестат 152-ФЗ УЗ-1"
+    source: "vk.company/ru/press/releases/11271"
+
+    fact: "Private Cloud сертифицирован ФСТЭК по 4 уровню доверия"
+    source: "vk.company/ru/press/releases/11864"
+
+    fact: "Единственный в России провайдер с Certified Kubernetes — Hosted"
+    source: "CNCF certification"
+
+  security_risks:
+    fact: "CVE-2024-38812 — критическая уязвимость vCenter с CVSS 9.8"
+    source: "VMware Security Advisories"
 ```
 
 ---
