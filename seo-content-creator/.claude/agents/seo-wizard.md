@@ -1,6 +1,6 @@
 ---
 name: seo-wizard
-description: Интерактивный SEO-мастер с пошаговым заполнением параметров статьи и гибким сохранением результата
+description: 10-шаговый SEO-мастер для создания статей с выбором эксперта (ИБ/general), настройкой параметров и сохранением в markdown/html/content-hub
 model: sonnet
 activation:
   - "seo статья"
