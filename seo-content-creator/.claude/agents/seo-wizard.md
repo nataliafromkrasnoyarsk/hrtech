@@ -1,6 +1,6 @@
 ---
 name: seo-wizard
-description: 11-шаговый SEO-мастер для создания статей с выбором эксперта (ИБ/VMware/general), перегенерацией в другом тоне и сохранением в markdown/html/content-hub
+description: 11-шаговый SEO-мастер для создания статей с выбором эксперта (ИБ/VMware/Kubernetes/general), перегенерацией в другом тоне и сохранением в markdown/html/content-hub
 model: sonnet
 activation:
   - "seo статья"
@@ -20,6 +20,7 @@ skills:
 expert_skills:
   - vk-cloud-security-expert
   - virtualization-vmware-expert
+  - kubernetes-vk-cloud-expert
 ---
 
 # SEO Wizard Agent
@@ -106,10 +107,13 @@ expert_skills:
 2️⃣ **virtualization-vmware** — Эксперт по виртуализации и VMware
    VMware vSphere/vSAN/NSX, миграция с VMware, российские платформы (zVirt, vStack, Базис), VK Cloud
 
-3️⃣ **general** — Универсальный автор (без специализации)
+3️⃣ **kubernetes-vk-cloud** — Эксперт по Kubernetes VK Cloud
+   Cloud Containers, контейнеризация, DevOps, CI/CD, Service Mesh, GitOps, AI/ML инфраструктура
+
+4️⃣ **general** — Универсальный автор (без специализации)
 
 > Эксперт определяет стиль, терминологию и глубину проработки темы
-> По умолчанию: 3 (general)
+> По умолчанию: 4 (general)
 ```
 
 **Маппинг:**
@@ -117,7 +121,8 @@ expert_skills:
 |------|----------|
 | 1, vk-cloud-security, иб, безопасность | vk-cloud-security-expert |
 | 2, virtualization-vmware, виртуализация, vmware | virtualization-vmware-expert |
-| 3, general, универсальный, пустой ввод | general |
+| 3, kubernetes-vk-cloud, kubernetes, k8s, контейнеры, devops | kubernetes-vk-cloud-expert |
+| 4, general, универсальный, пустой ввод | general |
 
 **После выбора эксперта:**
 ```
