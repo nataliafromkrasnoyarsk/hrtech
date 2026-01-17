@@ -106,14 +106,25 @@ session_state:
   structure:
     landing_type: "main" | "product" | "promo" | "event"
     blocks:
-      - hero: true
-      - promo: false
-      - about: true
-      - features: true
-      - solutions: false
-      - security: false
-      - trust: true
-      - cta: true
+      # Обязательные блоки
+      - hero: true              # H1 + подзаголовок + доп.текст + CTA
+      - stats: true             # 4 карточки с ключевыми метриками
+      - tech_features: true     # 3 технологии/преимущества
+      - pricing_features: true  # 3-4 механики экономии
+      - use_cases: true         # 4-6 кейсов по отраслям
+      - faq: true               # 8-12 вопросов
+      - final_cta: true         # Финальный призыв
+
+      # Опциональные блоки
+      - promo_banner: false     # Бонус/акция
+      - lead_magnet: false      # Чек-лист/гайд
+      - tools: false            # Инструменты управления
+      - ecosystem: false        # Аддоны и возможности
+      - integrations: false     # Категории интеграций с логотипами
+      - migration: false        # Услуга миграции
+      - calculator: false       # Калькулятор стоимости
+      - reliability: false      # Гарантии непрерывности
+      - docs: false             # Ссылки на документацию
 
   seo:
     primary_keywords: []
@@ -127,13 +138,19 @@ session_state:
 
   generated_content:
     hero: {}
-    promo: {}
-    about: {}
-    features: {}
-    solutions: {}
-    security: {}
-    trust: {}
-    cta: {}
+    stats: {}
+    tech_features: {}
+    pricing_features: {}
+    promo_banner: {}
+    lead_magnet: {}
+    tools: {}
+    ecosystem: {}
+    integrations: {}
+    migration: {}
+    use_cases: {}
+    faq: {}
+    docs: {}
+    final_cta: {}
     meta: {}
 ```
 
@@ -281,14 +298,15 @@ optional_fields:
 
 Какой тип лендинга создаём?
 
-1. **Main** — Главная страница платформы
+1. **Product** — Страница продукта/сервиса (рекомендуется)
+   Блоки: Hero, Stats, Tech Features, Pricing Features, Tools, Use Cases, FAQ, CTA
+   Референс: cloud.vk.com/containers/
+
+2. **Main** — Главная страница платформы
    Блоки: Hero, About, Features, Solutions, Trust, CTA
 
-2. **Product** — Страница продукта/сервиса
-   Блоки: Hero, Features, How it works, Pricing, CTA
-
 3. **Promo** — Промо-страница акции
-   Блоки: Hero + Promo, Benefits, CTA
+   Блоки: Hero + Promo Banner, Benefits, Lead Magnet, CTA
 
 4. **Event** — Страница мероприятия
    Блоки: Hero, Agenda, Speakers, Registration
@@ -303,13 +321,24 @@ optional_fields:
 ```
 Стандартная структура для {landing_type}:
 
-[ ] Hero — Заголовок и CTA
-[ ] About — Описание продукта
-[ ] Features — Преимущества (6 пунктов)
-[ ] Solutions — Продукты/сервисы
-[ ] Security — Надёжность и безопасность
-[ ] Trust — Логотипы клиентов
-[ ] CTA — Финальный призыв
+**Обязательные блоки:**
+[x] Hero — H1 + подзаголовок + доп.текст + CTA
+[x] Stats — 4 карточки с ключевыми метриками
+[x] Tech Features — 3 технологии/преимущества
+[x] Pricing Features — 3-4 механики экономии
+[x] Use Cases — 4-6 кейсов по отраслям
+[x] FAQ — 8-12 вопросов
+[x] Final CTA — Финальный призыв
+
+**Опциональные блоки:**
+[ ] Promo Banner — Бонус/акция
+[ ] Lead Magnet — Чек-лист/гайд
+[ ] Tools — Инструменты управления
+[ ] Ecosystem — Аддоны и возможности
+[ ] Integrations — Категории интеграций с логотипами
+[ ] Migration — Услуга миграции
+[ ] Reliability — Гарантии непрерывности
+[ ] Docs — Ссылки на документацию
 
 Хотите изменить набор блоков?
 - **да** — выберу нужные блоки
@@ -321,18 +350,18 @@ optional_fields:
 При выборе "да":
 
 ```
-Выберите блоки (через запятую): 1,2,3,4,5,6,7
+Выберите опциональные блоки (через запятую или "все"):
 
-1. Hero (обязательный)
-2. Promo-баннер
-3. About / Value Proposition
-4. Features / Benefits
-5. Solutions / Products
-6. Security / Reliability
-7. Trust / Clients
-8. CTA (обязательный)
+1. Promo Banner — Бонус/акция
+2. Lead Magnet — Чек-лист/гайд для скачивания
+3. Tools — Инструменты управления (Terraform, kubectl, Helm...)
+4. Ecosystem — Аддоны и возможности платформы
+5. Integrations — Категории интеграций (CI/CD, Service Mesh, Monitoring...)
+6. Migration — Услуга миграции с персональным архитектором
+7. Reliability — Гарантии непрерывности (Мультизональность, SDN...)
+8. Docs — Ссылки на документацию
 
-> Ваш выбор:
+> Пример: 1,3,5 или "все" или "нет"
 ```
 
 ---
