@@ -18,6 +18,7 @@
   - [Press Release Wizard](#press-release-wizard)
   - [Event Page Wizard](#event-page-wizard)
   - [SEO Content Creator](#seo-content-creator)
+  - [Landing Creator](#landing-creator)
   - [Landing Page Updater](#landing-page-updater)
 - [YAML-промты](#yaml-промты)
 - [Структура репозитория](#структура-репозитория)
@@ -30,14 +31,14 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        COMMANDS (8)                             │
+│                        COMMANDS (9)                             │
 │  /article-workflow  /draft-article  /trend-research            │
 │  /write-column  /write-press-release  /create-event            │
-│  /seo-create-article  /update-landing                          │
+│  /seo-create-article  /create-landing  /update-landing         │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                        AGENTS (10)                              │
+│                        AGENTS (11)                              │
 ├─────────────────────────────────────────────────────────────────┤
 │  RESEARCH        │  CREATION           │  QUALITY CONTROL      │
 │  ────────────    │  ─────────          │  ───────────────      │
@@ -47,6 +48,7 @@
 │                  │  Press Release      │  Optimizer            │
 │                  │  Event Wizard       │                       │
 │                  │  SEO Wizard         │                       │
+│                  │  Landing Creator    │                       │
 │                  │  Landing Updater    │                       │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
@@ -62,7 +64,7 @@
 
 ## Агенты
 
-10 специализированных AI-агентов, каждый с уникальной ролью:
+11 специализированных AI-агентов, каждый с уникальной ролью:
 
 | Агент | Модуль | Назначение |
 |-------|--------|------------|
@@ -75,13 +77,14 @@
 | **Press Release Wizard** | press-release-wizard | Профессиональные пресс-релизы |
 | **Event Wizard** | event-page-wizard | Страницы мероприятий (вебинары, конференции) |
 | **SEO Wizard** | seo-content-creator | SEO-статьи через интерактивный wizard |
+| **Landing Content Creator** | landing-creator | Создание контента лендингов (7 типов, 30+ блоков) |
 | **Landing Updater Wizard** | landing-updater | Обновление текстов лендингов |
 
 ---
 
 ## Команды
 
-8 интерактивных команд для запуска workflows:
+9 интерактивных команд для запуска workflows:
 
 | Команда | Агенты | Описание |
 |---------|--------|----------|
@@ -92,6 +95,7 @@
 | `/write-press-release` | Press Release Wizard | Пресс-релиз с пошаговой генерацией |
 | `/create-event` | Event Wizard | Страница мероприятия (MD + JSON) |
 | `/seo-create-article` | SEO Wizard | SEO-статья через wizard |
+| `/create-landing` | Landing Content Creator | Создание контента лендинга (7 типов) |
 | `/update-landing` | Landing Updater | Обновление текста лендинга |
 
 ---
@@ -304,6 +308,39 @@
 
 ---
 
+### Landing Creator
+
+**Агент:** Landing Content Creator
+**Команда:** `/create-landing`
+
+7-шаговый wizard для создания контента лендингов с автоматическим определением типа.
+
+```
+ШАГ 1: Получение брифа (текст / файл / вопросы)
+ШАГ 2: Анализ и уточнение
+ШАГ 3: Предложение структуры (автоопределение типа + блоки)
+ШАГ 4: SEO-параметры
+ШАГ 5: Генерация контента
+ШАГ 6: Выбор формата (Markdown / HTML / JSON)
+ШАГ 7: Доработка и сохранение
+```
+
+**7 типов лендингов:**
+
+| Тип | Описание |
+|-----|----------|
+| Product Landing | Страница продукта (8-17 секций) |
+| Security Product | ИБ-продукт (SIEM, защита) |
+| Beta Product | Продукт в бета-тесте |
+| Solution Navigator | Навигатор по сценариям |
+| Industry Solution | Отраслевое решение |
+| Special Project | Спецпроект / контент-хаб |
+| Referral Program | Партнёрская программа |
+
+**Skills:** `landing-knowledge`
+
+---
+
 ### Landing Page Updater
 
 **Агент:** Landing Updater Wizard
@@ -394,7 +431,12 @@ prompt-contents/
 │           ├── seo-knowledge/
 │           └── vk-cloud-security-expert/
 │
-├── landing-updater/                     # Landing Pages
+├── landing-creator/                     # Landing Pages (Create)
+│   └── .claude/
+│       ├── agents/landing-content-creator.md
+│       └── skills/landing-knowledge/
+│
+├── landing-updater/                     # Landing Pages (Update)
 │   └── .claude/
 │       ├── agents/landing-updater-wizard.md
 │       └── skills/landing-knowledge/
@@ -410,11 +452,11 @@ prompt-contents/
 
 | Метрика | Значение |
 |---------|----------|
-| Агентов | 10 |
-| Команд | 8 |
+| Агентов | 11 |
+| Команд | 9 |
 | Skills | 25+ |
 | Изданий (Columnist) | 14 |
-| Модулей | 9 |
+| Модулей | 10 |
 
 ---
 
