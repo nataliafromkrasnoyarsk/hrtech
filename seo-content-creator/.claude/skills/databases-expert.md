@@ -891,18 +891,563 @@ monitoring_metrics:
 
 ---
 
-## РОССИЙСКИЙ РЫНОК СУБД
+## ИССЛЕДОВАНИЯ И РЕЙТИНГИ 2024-2025
 
-### Импортозамещение
+### Мировой рынок СУБД (Gartner)
 
 ```yaml
-russian_databases:
-  context:
-    description: "Переход на российские СУБД в госсекторе и КИИ"
+gartner_dbms_market_2024_2025:
+  market_size_2024:
+    total: "$119.7 млрд"
+    growth_yoy: "+13.4%"
+
+  market_forecast_2025:
+    total: "$137 млрд"
+    growth: "+16%"
+
+  cloud_vs_onprem:
+    cloud_share: "64%"
+    onprem_share: "36%"
+    trend: "Облачные DBaaS захватывают большую часть рынка"
+
+  segments_growth_2024:
+    nonrelational_dbms: "+22.7%"
+    relational_dbms: "+10.8%"
+
+  fastest_growing:
+    category: "Graph Databases"
+    cagr_5year: "26.4%"
+
+  key_trends_2025:
+    - "GenAI интеграция в управление данными"
+    - "Data Fabric для интеграции разрозненных данных"
+    - "Рост self-service аналитики (30% workforce к 2025)"
+
+  source: "Gartner Market Share Analysis 2024-2025"
+```
+
+### DB-Engines Ranking 2025
+
+```yaml
+db_engines_ranking_2025:
+  description: "Рейтинг популярности СУБД по данным DB-Engines (Q1 2025)"
+
+  top_10:
+    - rank: 1
+      name: "Oracle Database"
+      trend: "Стабильно"
+    - rank: 2
+      name: "MySQL"
+      trend: "Снижение (-125 очков в 2024)"
+    - rank: 3
+      name: "Microsoft SQL Server"
+      trend: "Стабильно"
+    - rank: 4
+      name: "PostgreSQL"
+      trend: "Рост (top climber 4 из 6 месяцев)"
+    - rank: 5
+      name: "MongoDB"
+      trend: "Замедление роста"
+    - rank: 6
+      name: "Snowflake"
+      trend: "Впервые в top-6, обогнал Redis"
+    - rank: 7
+      name: "Redis"
+      trend: "Стабильно"
+    - rank: 8
+      name: "Databricks"
+      trend: "Рост"
+    - rank: 9
+      name: "IBM Db2"
+      trend: "Стабильно"
+    - rank: 10
+      name: "Elasticsearch"
+      trend: "Стабильно"
+
+  dbms_of_the_year:
+    2024: "Snowflake"
+    2023: "PostgreSQL"
+
+  notable_climbers:
+    - name: "PostgreSQL"
+      change: "Рост продолжается, особенно для cloud и AI-приложений"
+    - name: "Snowflake"
+      change: "Крупнейший рост, №1 в рейтинге climbers"
+    - name: "ClickHouse"
+      change: "С 37 на 31 место, взрывной рост в аналитике"
+
+  open_source_vs_proprietary:
+    open_source: "49.8%"
+    proprietary: "50.2%"
+    tracked_databases: 423
+
+  source: "DB-Engines.com / Redgate Software"
+```
+
+### Stack Overflow Developer Survey 2024
+
+```yaml
+stackoverflow_survey_2024:
+  survey_details:
+    respondents: "65,000+"
+    countries: 185
+    date: "Май 2024"
+
+  database_usage_professional_developers:
+    - name: "PostgreSQL"
+      usage: "51.9%"
+      note: "№1 третий год подряд, впервые >50%"
+    - name: "MySQL"
+      usage: "39.4%"
+      note: "Разрыв с PostgreSQL: 12.5 п.п."
+    - name: "SQLite"
+      usage: "32.1%"
+    - name: "Microsoft SQL Server"
+      usage: "~25%"
+    - name: "MongoDB"
+      usage: "~24%"
+    - name: "Redis"
+      usage: "~20%"
+
+  postgresql_stats:
+    usage_2018: "33%"
+    usage_2024: "49%"
+    growth: "+16 п.п. за 6 лет"
+    admiration_rate: "74.5%"
+    demand_growth: "19% (2022) → 47% (2024)"
+
+  learning_to_code_preferences:
+    mysql: "45%"
+    sqlite: "36%"
+    postgresql: "33%"
+    note: "Начинающие предпочитают MySQL"
+
+  source: "Stack Overflow Developer Survey 2024"
+```
+
+### Тренды NoSQL и аналитических СУБД
+
+```yaml
+nosql_analytics_trends_2024_2025:
+  clickhouse:
+    trend: "Взрывной рост"
+    ranking_change: "С #37 на #31 в DB-Engines"
     drivers:
-      - "Требования законодательства"
-      - "Санкционные риски"
-      - "Реестр российского ПО"
+      - "Real-time аналитика"
+      - "BI и телеметрия"
+      - "Переход от batch к interactive processing"
+    2025_highlights:
+      - "SharedCatalog инфраструктура"
+      - "Warehouses как новая возможность"
+      - "Расширенные функции безопасности"
+      - "CDC для MySQL в private preview"
+
+  redis:
+    position: "Стабильная 7-я позиция"
+    trend: "Обогнан Snowflake"
+    role: "Invisible infrastructure для кэширования"
+    use_pattern: "Часто в паре с MongoDB/PostgreSQL"
+
+  mongodb:
+    position: "#5 в рейтинге"
+    trend: "Замедление роста"
+    challenge: "SQL-движки добавили JSON-поддержку"
+    peak_popularity: "~2013 год"
+
+  market_shifts:
+    - "NoSQL дополняет, а не заменяет RDBMS (reciprocity 50-69%)"
+    - "Cloud-native решения растут (Snowflake, Databricks)"
+    - "Специализация под AI/ML workloads"
+
+  emerging_databases:
+    - "DuckDB (аналитика в-памяти)"
+    - "Supabase (PostgreSQL-as-a-service)"
+    - "PlanetScale (MySQL serverless)"
+    - "Neon (PostgreSQL serverless)"
+```
+
+### Cloud Database Market 2024-2025
+
+```yaml
+cloud_database_market:
+  market_size:
+    forecast_2034: "$91.41 млрд"
+    alternative_forecast_2032: "$123.4 млрд"
+    cagr: "20.6% (2024-2032)"
+
+  market_share_by_provider:
+    aws: "30%"
+    azure: "20%"
+    gcp: "13%"
+
+  aws_services:
+    rds:
+      description: "Managed relational databases"
+      engines: ["PostgreSQL", "MySQL", "MariaDB", "Oracle", "SQL Server"]
+      pricing_example: "db.t3.micro MySQL ~$0.017/час"
+    aurora:
+      description: "High-performance MySQL/PostgreSQL compatible"
+    dynamodb:
+      description: "Fully managed NoSQL"
+    redshift:
+      description: "Data warehouse"
+
+  azure_services:
+    sql_database:
+      description: "Flagship relational DBaaS"
+      feature: "Auto-scaling pricing"
+    cosmos_db:
+      description: "Multi-model globally distributed"
+      highlight: "Low-latency guarantees"
+    total_services: 12
+
+  gcp_services:
+    cloud_sql:
+      engines: ["MySQL", "PostgreSQL", "SQL Server"]
+    cloud_spanner:
+      description: "Horizontally scalable, strongly consistent"
+      unique: "Уникальное предложение на рынке"
+    bigquery:
+      description: "Serverless data warehouse"
+
+  discounts:
+    aws_azure: "Reserved Instances до 72% скидки"
+    gcp: "Committed Use Discounts до 70%"
+
+  compliance:
+    all_providers: ["SOC 2", "ISO 27001", "PCI DSS", "HIPAA", "GDPR", "FedRAMP"]
+```
+
+---
+
+## РОССИЙСКИЙ РЫНОК СУБД 2024-2025
+
+### Объём рынка и динамика
+
+```yaml
+russian_dbms_market_2024:
+  market_size_2024:
+    csr_estimate: "89.5 млрд ₽"
+    growth_yoy: "+34%"
+    vs_global: "Опережает мировой показатель в 2.5 раза"
+
+  alternative_estimates:
+    range: "37-51 млрд ₽"
+    growth_2025: "+20%"
+    growth_5y_forecast: "~15% CAGR"
+
+  forecast:
+    2030: "Рост в 3.5 раза (ЦСР)"
+    2031: ">251 млрд ₽"
+    cagr_russia: "~16% (на уровне мирового)"
+
+  growth_phases:
+    until_2027:
+      driver: "Импортозамещение"
+      cagr: "21.6%"
+    after_2027:
+      driver: "AI и рост объёма данных"
+      cagr: "11.9%"
+```
+
+### Лидеры российского рынка СУБД 2024
+
+```yaml
+russian_dbms_leaders_2024:
+  ranking:
+    - rank: 1
+      vendor: "Postgres Professional"
+      product: "Postgres Pro"
+      revenue_2024: "~9.3 млрд ₽"
+      market_share: "10.4%"
+
+    - rank: 2
+      vendor: "Arenadata"
+      products: ["Arenadata DB", "Arenadata Hadoop"]
+      revenue_2024: "~5.6 млрд ₽"
+      market_share: "6.7%"
+
+    - rank: 3
+      vendor: "Yandex B2B Tech"
+      products: ["YDB", "Yandex Cloud DBaaS"]
+      revenue_2024: "~3.9 млрд ₽"
+
+    - rank: 4
+      vendor: "VK Tech"
+      products: ["Tarantool", "VK Cloud Databases"]
+
+    - rank: 5
+      vendor: "DIS Group"
+
+  top_10_combined:
+    share_of_market: "28.3%"
+
+  source: "CNews, ЦСР, TAdviser 2024"
+```
+
+### Импортозамещение СУБД
+
+```yaml
+import_substitution_status:
+  current_state_2024:
+    foreign_systems_installed: ">60%"
+    note: "Большинство эксплуатируемых систем — зарубежные"
+
+  progress:
+    2021: "64% зависимость от Запада"
+    2023: "80% — российские решения (по данным ЦСР)"
+
+  forecast_2031:
+    western_new_sales: "<1%"
+    return_probability: "58.3% считают возможным возвращение западных игроков"
+    dominance: "Не смогут занять доминирующие позиции"
+
+  adoption_by_segment:
+    government:
+      status: ">50% используют отечественные СУБД"
+      critical_services: "Переведены на российские решения"
+    enterprise:
+      status: "Только 3.5% используют отечественные решения"
+      note: "Из 2000+ опрошенных корпоративных клиентов"
+    mid_business:
+      status: "Очень низкая степень использования"
+
+  legacy_systems:
+    oracle: "До сих пор используется >50% респондентов"
+    microsoft_sql: "Широко распространён"
+```
+
+### Регуляторные требования
+
+```yaml
+regulatory_requirements:
+  mincifry_guidelines_2024:
+    target: "Госкорпорации и компании с госучастием"
+    deadlines:
+      os_office_antivirus_virtualization: "1 января 2025"
+      dbms: "1 января 2026"
+
+  sector_requests:
+    banking:
+      request: "Перенос сроков на 2027 год"
+      reason: "Банковские системы адаптированы под Oracle"
+
+  growth_drivers:
+    - "Требования заказчиков и регуляторов к кибербезопасности"
+    - "Устойчивый спрос на импортозамещение западного ПО"
+    - "Рост профессионализма команд и зрелости продуктов"
+    - "Государственная поддержка"
+```
+
+### Российские СУБД и их специализация
+
+```yaml
+russian_dbms_specialization:
+  postgresql_forks:
+    postgres_pro:
+      vendor: "Postgres Professional"
+      specialization: "Enterprise, интеграция с банковскими АБС"
+      certifications: ["ФСТЭК", "Реестр российского ПО"]
+    tantor:
+      vendor: "Тантор Лабс (ГК Астра)"
+      specialization: "Работа с 1С"
+    arenadata_prosperity:
+      vendor: "Arenadata"
+      specialization: "Enterprise PostgreSQL"
+    pangolin:
+      vendor: "Сбер"
+      specialization: "Внутренние системы банка"
+    jatoba:
+      vendor: "Газинформсервис"
+      specialization: "Безопасность, сертификация"
+
+  analytics:
+    arenadata_db:
+      base: "Greenplum"
+      type: "MPP-СУБД для аналитики"
+      replaces: ["Oracle Exadata", "Teradata", "SAP HANA"]
+      use_case: "Критически важные системы с большими данными"
+
+  in_memory:
+    tarantool:
+      vendor: "VK Tech"
+      type: "In-Memory + Application Server"
+      role: "Дополнение к классической СУБД"
+      use_case: "Real-time транзакции, аналитика на миллисекундах"
+```
+
+---
+
+## ИМПОРТОЗАМЕЩЕНИЕ ORACLE И MS SQL
+
+### Переход с Oracle
+
+```yaml
+oracle_migration:
+  drivers:
+    - "Уход Oracle из России"
+    - "Высокая стоимость лицензий"
+    - "Санкционные риски"
+    - "Требования 187-ФЗ о КИИ"
+
+  target_platforms:
+    primary:
+      - "PostgreSQL / Postgres Pro"
+      - "Arenadata DB (для OLAP)"
+    secondary:
+      - "MySQL / Percona"
+      - "YDB (Yandex)"
+
+  migration_tools:
+    - name: "Ora2Pg"
+      type: "Open Source"
+      capabilities: "DDL, DML, PL/SQL конвертация"
+    - name: "Postgres Pro Migration Toolkit"
+      type: "Enterprise"
+      capabilities: "Полный цикл миграции"
+    - name: "AWS SCT"
+      type: "Cloud"
+      note: "Schema Conversion Tool"
+
+  challenges:
+    - "PL/SQL → PL/pgSQL конвертация"
+    - "Проприетарные типы данных Oracle"
+    - "Sequences и identity columns"
+    - "Materialized views синтаксис"
+    - "Stored procedures портирование"
+
+  timeline_typical:
+    assessment: "2-4 недели"
+    schema_migration: "1-3 месяца"
+    data_migration: "Зависит от объёма"
+    testing: "2-4 месяца"
+    total: "6-12 месяцев для крупных систем"
+```
+
+### Переход с Microsoft SQL Server
+
+```yaml
+mssql_migration:
+  drivers:
+    - "Санкционные ограничения"
+    - "Лицензионные риски"
+
+  target_platforms:
+    - "PostgreSQL / Postgres Pro"
+    - "MySQL / MariaDB"
+
+  key_differences:
+    - from: "T-SQL"
+      to: "PL/pgSQL или стандартный SQL"
+    - from: "IDENTITY"
+      to: "SERIAL / GENERATED"
+    - from: "TOP N"
+      to: "LIMIT N"
+    - from: "GETDATE()"
+      to: "NOW() / CURRENT_TIMESTAMP"
+```
+
+---
+
+## СЕРТИФИЦИРОВАННЫЕ РОССИЙСКИЕ СУБД
+
+```yaml
+certified_russian_databases:
+  fstec_certified:
+    postgres_pro:
+      vendor: "Postgres Professional"
+      editions: ["Standard", "Enterprise", "Certified"]
+      certifications:
+        - "ФСТЭК России (до 1 класса защищённости)"
+        - "Реестр российского ПО"
+      features_certified:
+        - "Мандатный контроль доступа"
+        - "Защита от НСД"
+        - "Аудит действий"
+
+    arenadata_db:
+      vendor: "Arenadata"
+      certifications:
+        - "Реестр российского ПО"
+        - "В процессе сертификации ФСТЭК"
+
+    tarantool:
+      vendor: "VK Tech"
+      certifications:
+        - "Реестр российского ПО"
+
+    jatoba:
+      vendor: "Газинформсервис"
+      base: "PostgreSQL"
+      certifications:
+        - "ФСТЭК России"
+        - "Реестр российского ПО"
+      specialization: "ГИС, КИИ, ИСПДн"
+
+  registry_only:
+    clickhouse:
+      note: "Open source, российского происхождения"
+      status: "Отдельные дистрибутивы в реестре"
+
+    greenplum_forks:
+      - "Arenadata DB"
+      - "Greenplum от Arenadata"
+
+  compliance_requirements:
+    152_fz: "Персональные данные"
+    187_fz: "Критическая информационная инфраструктура"
+    pci_dss: "Платёжные данные"
+    gost: "ГОСТ Р 57580 (финансовый сектор)"
+```
+
+---
+
+## ПРОГНОЗЫ И ТРЕНДЫ 2025-2030
+
+```yaml
+market_trends_2025_2030:
+  global:
+    ai_integration:
+      description: "GenAI меняет работу с данными"
+      impact: "Автоматизация DBA-задач, query optimization"
+
+    vector_databases:
+      description: "Рост спроса для AI/ML приложений"
+      growth: "PostgreSQL pgvector популярность +150%"
+
+    data_fabric:
+      description: "Интеграция разрозненных источников"
+      benefit: "-30% времени на data integration (Forrester)"
+
+    serverless_databases:
+      description: "Pay-per-query модели"
+      examples: ["Aurora Serverless", "Neon", "PlanetScale"]
+
+  russia:
+    import_substitution_completion:
+      timeline: "2026-2027"
+      driver: "Регуляторные требования"
+
+    ai_driven_growth:
+      timeline: "После 2027"
+      driver: "ИИ и рост объёмов данных"
+
+    market_consolidation:
+      description: "Укрупнение вендоров"
+      leaders: ["Postgres Pro", "Arenadata", "VK Tech", "Yandex"]
+
+    specialization:
+      oltp: "PostgreSQL-форки (Postgres Pro, Tantor, Pangolin)"
+      olap: "Arenadata DB, ClickHouse"
+      in_memory: "Tarantool, Redis"
+      ai_ml: "YDB, ClickHouse + ML"
+
+  sources:
+    - "Gartner Data & Analytics Trends 2025"
+    - "ЦСР прогноз рынка СУБД России"
+    - "IDC Worldwide Data Platform Forecast"
+    - "Forrester Data Fabric Report"
+```
 
   certified_databases:
     postgres_pro:
@@ -989,6 +1534,13 @@ long_tail_keywords:
   - "managed PostgreSQL в облаке"
   - "ClickHouse для аналитики"
   - "Redis для кэширования"
+  - "рынок СУБД 2024"
+  - "DB-Engines рейтинг"
+  - "Postgres Pro vs PostgreSQL"
+  - "Arenadata DB отзывы"
+  - "переход с Oracle на PostgreSQL"
+  - "российские СУБД для КИИ"
+  - "ФСТЭК сертификация СУБД"
 ```
 
 ---
@@ -1047,6 +1599,20 @@ article_structure:
 
 ```yaml
 sources:
+  market_research:
+    - url: "https://www.gartner.com/en/documents/6588602"
+      description: "Gartner Market Share Analysis: DBMS 2024"
+    - url: "https://db-engines.com/en/ranking"
+      description: "DB-Engines Ranking"
+    - url: "https://survey.stackoverflow.co/2024/"
+      description: "Stack Overflow Developer Survey 2024"
+    - url: "https://www.tadviser.ru/"
+      description: "TAdviser: Российский рынок СУБД"
+    - url: "https://www.cnews.ru/reviews/rynok_subd_2025"
+      description: "CNews: Рынок СУБД 2025"
+    - url: "https://www.csr.ru/"
+      description: "ЦСР: Исследования рынка данных"
+
   official_documentation:
     - url: "https://www.postgresql.org/docs/"
       description: "PostgreSQL Documentation"
@@ -1066,6 +1632,8 @@ sources:
       description: "Arenadata"
     - url: "https://www.tarantool.io/"
       description: "Tarantool"
+    - url: "https://ydb.tech/"
+      description: "YDB (Yandex)"
 
   vk_cloud:
     - url: "https://cloud.vk.com/docs/dbs"
@@ -1076,6 +1644,8 @@ sources:
       description: "Хабр: PostgreSQL"
     - url: "https://habr.com/ru/hub/mysql/"
       description: "Хабр: MySQL"
+    - url: "https://www.anti-malware.ru/analytics/"
+      description: "Anti-Malware: Аналитика рынка СУБД"
 ```
 
 ---
