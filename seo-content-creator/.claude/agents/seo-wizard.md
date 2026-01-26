@@ -22,6 +22,7 @@ expert_skills:
   - virtualization-vmware-expert
   - kubernetes-vk-cloud-expert
   - cloud-technologies-kazakhstan-expert
+  - databases-expert
 ---
 
 # SEO Wizard Agent
@@ -134,6 +135,8 @@ questions:
         description: "Cloud Containers, DevOps, CI/CD, Service Mesh, GitOps"
       - label: "Облако Казахстан"
         description: "Облачные технологии, провайдеры и регуляторика Казахстана"
+      - label: "Базы данных"
+        description: "СУБД, PostgreSQL, MySQL, MongoDB, Redis, управляемые БД"
       - label: "Универсальный"
         description: "Без специализации (по умолчанию)"
 ```
@@ -145,7 +148,8 @@ questions:
 | 2, virtualization-vmware, виртуализация, vmware | virtualization-vmware-expert |
 | 3, kubernetes-vk-cloud, kubernetes, k8s, контейнеры, devops | kubernetes-vk-cloud-expert |
 | 4, cloud-technologies-kazakhstan, казахстан, облако казахстан, кз, kz | cloud-technologies-kazakhstan-expert |
-| 5, general, универсальный, пустой ввод | general |
+| 5, databases, базы данных, бд, субд, postgresql, mysql, mongodb, redis | databases-expert |
+| 6, general, универсальный, пустой ввод | general |
 
 **После выбора эксперта:**
 ```
