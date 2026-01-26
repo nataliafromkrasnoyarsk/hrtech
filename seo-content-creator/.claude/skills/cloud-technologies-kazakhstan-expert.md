@@ -518,28 +518,137 @@ international_providers:
     company: "ТОО «ВК Тех Казахстан»"
     description: "Локализованная облачная платформа VK Cloud"
     local_partner: "QazCloud"
-    launch: "Апрель 2023"
+    launch: "25 апреля 2023"
     url: "vkcloud.kz"
 
+    # Полный список сервисов
     services:
-      - "Compute (виртуальные машины)"
-      - "Kubernetes"
-      - "Managed Databases"
-      - "Object Storage S3"
-      - "ML Platform"
-      - "Big Data"
-      - "CDN"
-      - "20+ IaaS и PaaS сервисов"
+      compute:
+        - name: "Cloud Servers"
+          description: "Виртуальные серверы с предустановленной ОС"
+          feature: "Запуск за 5 минут"
+        - name: "Cloud Containers (Kubernetes)"
+          description: "Развёртывание, масштабирование и мониторинг микросервисов"
+
+      storage:
+        - name: "Cloud Storage (S3)"
+          description: "S3-совместимое объектное хранилище"
+          feature: "Неограниченный объём, быстрое масштабирование"
+        - name: "Cloud Backup/DRaaS"
+          description: "Резервное копирование и аварийное восстановление"
+
+      databases:
+        - name: "Cloud Databases"
+          description: "Управляемые СУБД"
+          options:
+            - "MySQL"
+            - "MongoDB"
+            - "Redis"
+            - "ClickHouse"
+            - "Arenadata DB (ADB) — с марта 2024"
+            - "Tarantool Cloud"
+            - "Postgres Pro"
+
+      analytics:
+        - name: "VDP Lakehouse"
+          description: "Платформа больших данных"
+          benefit: "Снижение стоимости хранения и обработки данных в 10 раз"
+        - name: "Arenadata DB"
+          launch: "Март 2024"
+          description: "Облачная СУБД для корпоративного хранилища данных"
+
+      ml_ai:
+        - name: "Cloud ML Platform"
+          launch: "29 мая 2025 (VK Cloud Nomad Fest, Алматы)"
+          description: "Платформа для полного цикла ML-разработки"
+          components:
+            - "JupyterHub"
+            - "MLflow + JupyterHub"
+            - "MLflow Deploy"
+            - "Cloud Spark"
+          industries:
+            - "Медицина"
+            - "Ритейл"
+            - "Сельское хозяйство"
+            - "Промышленность"
+            - "Онлайн-торговля"
+            - "Финансы"
+          future: "Планируется аренда облачных GPU-карт"
+
+      monitoring:
+        - name: "Cloud Monitoring"
+          description: "Единый мониторинг ИТ-инфраструктуры"
+        - name: "Load Balancer"
+          description: "Распределение входящего трафика"
+
+    # Ценообразование
+    pricing:
+      model: "Pay-as-you-go (оплата за использование)"
+      currency: "Тенге (KZT)"
+      new_user_bonus: "24 000 тенге для тестирования"
+      promo: "До 5 млн тенге на облачный апгрейд"
+
+    # Программа для стартапов
+    startup_program:
+      period: "1 января 2025 — 31 декабря 2025"
+      organizer: "ТОО «ВК Тех Казахстан»"
+      purpose: "Привлечение компаний, разрабатывающих цифровые продукты"
+
+    # Клиенты и кейсы
+    clients:
+      total: "8000+ клиентов (МСБ и корпорации)"
+      notable:
+        - name: "Kassa24"
+          industry: "Финтех/эквайринг"
+          case: "Миграция из московского ЦОДа в Казахстан"
+          results:
+            - "Снижение задержек"
+            - "Повышение отказоустойчивости (Kubernetes)"
+            - "Соответствие законодательству РК"
+            - "Сертификация PCI DSS"
+        - name: "Burger King"
+          industry: "Ритейл/HoReCa"
+          case: "Enterprise-хранилище данных на ArenaData Greenplum"
+          note: "Один из самых мощных кейсов"
+        - name: "Daribar.kz"
+          industry: "Здравоохранение/фармацевтика"
+          case: "Тестирование бизнес-идеи с грантом VK Cloud"
+          result: "Ускорение доставки лекарств"
+        - name: "Магазин «Мечта»"
+          industry: "Ритейл/электротехника"
+          case: "Бизнес-применение облака"
+        - name: "Voximplant"
+          industry: "Телеком/коммуникации"
+        - name: "Битрикс 24"
+          industry: "SaaS/корпоративное ПО"
+
+    # Мероприятия
+    events:
+      - name: "VK Cloud Nomad Fest"
+        date: "29 мая 2025"
+        location: "Алматы"
+        highlights: "Запуск Cloud ML Platform"
+      - name: "VK Cloud Conf Astana"
+        description: "Ежегодная конференция"
+
+    # Команда и поддержка
+    team:
+      technical_director: "Болат Кажкенов"
+      specialists: "10 000+ специалистов (VK Tech)"
+      support: "Круглосуточная техподдержка"
 
     compliance:
       - "Хранение ПДн на территории РК"
       - "Закон № 94-V о персональных данных"
       - "Расчёты в тенге"
       - "Казахстанское юридическое лицо"
+      - "PCI DSS (для финтех-клиентов)"
 
     keywords:
       - VK Cloud Казахстан
       - vkcloud.kz
+      - VK Tech Казахстан
+      - облачная платформа Казахстан
 
   yandex_cloud_kz:
     name: "Yandex Cloud"
