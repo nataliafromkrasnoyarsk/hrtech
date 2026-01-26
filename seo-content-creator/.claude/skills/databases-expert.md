@@ -416,72 +416,436 @@ newsql_databases:
 vk_cloud_databases:
   service_name: "Cloud Databases"
   description: "Управляемые базы данных в облаке VK Cloud"
+  launch_time: "Развёртывание за 2-3 минуты"
+  sla: "99.95% с финансовыми гарантиями"
+  billing: "Посекундная тарификация (pay-as-you-go)"
+  bonus: "5000 ₽ на тестирование (60 дней)"
 
-  available_databases:
-    postgresql:
-      versions: ["12", "13", "14", "15", "16"]
-      features:
-        - "Автоматические бэкапы"
-        - "Point-in-Time Recovery (PITR)"
-        - "Read Replicas"
-        - "Connection Pooling (PgBouncer)"
-        - "Extensions поддержка"
-        - "Мониторинг и алерты"
-
-    mysql:
-      versions: ["5.7", "8.0"]
-      features:
-        - "InnoDB storage engine"
-        - "Автоматические бэкапы"
-        - "Read Replicas"
-        - "Мониторинг производительности"
-
-    mongodb:
-      versions: ["4.4", "5.0", "6.0"]
-      features:
-        - "Replica Set из коробки"
-        - "Шардированные кластеры"
-        - "Автоматические бэкапы"
-
-    redis:
-      versions: ["6.x", "7.x"]
-      features:
-        - "Sentinel для HA"
-        - "Cluster mode"
-        - "Persistence настройки"
-
-    clickhouse:
-      features:
-        - "Репликация через ZooKeeper"
-        - "Шардирование"
-        - "Материализованные представления"
-
-    tarantool:
-      service: "Tarantool Cloud"
-      features:
-        - "Managed Tarantool"
-        - "Интеграция с VK Cloud"
-
-    arenadata_db:
-      launch: "Март 2024"
-      features:
-        - "MPP Data Warehouse"
-        - "PostgreSQL-совместимость"
-        - "Для аналитических задач"
-
-  common_features:
-    - "SLA 99.95%"
+  key_benefits:
     - "Автоматическое резервное копирование"
+    - "Гибкое масштабирование по мере роста"
+    - "Геораспределённые реплики"
     - "Шифрование данных"
     - "Мониторинг и алерты"
-    - "Вертикальное масштабирование"
     - "Приватные сети (VPC)"
     - "Terraform provider"
+    - "API для автоматизации"
+```
+
+### PostgreSQL в VK Cloud
+
+```yaml
+vk_cloud_postgresql:
+  name: "Cloud Databases PostgreSQL"
+  type: "Managed PostgreSQL"
+  versions: ["12", "13", "14", "15", "16"]
+
+  configurations:
+    single:
+      description: "Один инстанс"
+      use_case: "Разработка, тестирование"
+    master_replica:
+      description: "Primary + Read Replica"
+      use_case: "Масштабирование чтения"
+    cluster:
+      description: "HA-кластер с автоматическим failover"
+      use_case: "Production, высокая доступность"
+
+  features:
+    pitr:
+      name: "Point-in-Time Recovery (PITR)"
+      description: "Восстановление на любой момент времени"
+      how_it_works: "Непрерывное копирование WAL-журналов"
+      requirement: "Настроенное расписание резервного копирования"
+    connection_pooling:
+      name: "PgBouncer"
+      modes:
+        - name: "Transaction mode"
+          default: true
+          description: "Соединение удерживается на время транзакции"
+        - name: "Session mode"
+          description: "Соединение удерживается на время сессии"
+      benefit: "Снижение нагрузки на RAM"
+    extensions:
+      supported: true
+      examples: ["PostGIS", "pg_stat_statements", "pgvector"]
+    monitoring:
+      prometheus: true
+      grafana: true
+      custom_alerts: true
+
+  replication:
+    type: "Потоковая репликация"
+    sync_modes: ["Асинхронная", "Синхронная (кворум)"]
+    read_replicas: "Поддерживаются"
+
+  backup:
+    automatic: true
+    schedule: "Настраиваемое"
+    retention: "До 35 дней"
+    storage: "Отказоустойчивое хранилище"
+
+  update:
+    in_place: true
+    supported_paths: "12→13→14→15→16"
+```
+
+### Postgres Pro Enterprise в VK Cloud
+
+```yaml
+vk_cloud_postgres_pro:
+  name: "Postgres Pro Enterprise"
+  vendor: "Postgres Professional"
+  launch_date: "20 сентября 2022"
+  status: "Доступен на платформе VK Cloud"
+
+  description: "Enterprise-версия PostgreSQL с расширенными возможностями"
+
+  advantages_over_postgresql:
+    - "Более 100 функций для надёжности, производительности, безопасности"
+    - "Оптимизированный формат хранения"
+    - "Инструменты целостности базы данных"
+    - "Резервные копии без остановки системы"
+    - "Multimaster репликация"
+    - "Автономные транзакции"
+    - "Шардирование (shardman)"
+
+  compliance:
+    - "Единый реестр российского ПО Минцифры"
+    - "Совместимость с Astra Linux"
+    - "Сертификация ФСТЭК"
+
+  use_cases:
+    - "Проекты с большими объёмами данных"
+    - "Высокие требования к производительности"
+    - "Требования к надёжности и отказоустойчивости"
+    - "Импортозамещение Oracle"
 
   pricing:
-    model: "Pay-as-you-go"
-    billing: "Посекундная тарификация"
-    currency: "Рубли / Тенге (Казахстан)"
+    model: "Посекундная тарификация"
+    benefit: "Без капитальных затрат"
+```
+
+### MySQL в VK Cloud
+
+```yaml
+vk_cloud_mysql:
+  name: "Cloud Databases MySQL"
+  type: "Managed MySQL"
+  versions: ["5.7", "8.0"]
+
+  configurations:
+    single: "Один инстанс"
+    master_slave: "Primary + Replica"
+    cluster: "HA-кластер"
+
+  features:
+    - "InnoDB storage engine"
+    - "Автоматические бэкапы"
+    - "Read Replicas"
+    - "Мониторинг производительности"
+    - "Расширения и флаги (параметры)"
+    - "Prometheus мониторинг"
+
+  use_cases:
+    - "Веб-приложения"
+    - "CMS (WordPress, Drupal, Joomla)"
+    - "E-commerce платформы"
+    - "Legacy-системы"
+```
+
+### MongoDB в VK Cloud
+
+```yaml
+vk_cloud_mongodb:
+  name: "Cloud Databases MongoDB"
+  type: "Managed MongoDB"
+  versions: ["4.4", "5.0", "6.0"]
+
+  configurations:
+    replica_set:
+      description: "Replica Set из коробки"
+      nodes: "3+ узла для кворума"
+    sharded_cluster:
+      description: "Шардированные кластеры"
+      use_case: "Большие объёмы данных"
+
+  features:
+    - "Автоматические бэкапы"
+    - "Репликация для HA"
+    - "Шардирование для масштабирования"
+    - "Агрегационный фреймворк"
+
+  use_cases:
+    - "Каталоги продуктов"
+    - "Управление контентом (CMS)"
+    - "IoT данные"
+    - "Гибкие схемы данных"
+```
+
+### Redis в VK Cloud
+
+```yaml
+vk_cloud_redis:
+  name: "Cloud Databases Redis"
+  type: "Managed Redis"
+  versions: ["6.x", "7.x"]
+
+  configurations:
+    single:
+      description: "Один инстанс"
+      note: "Базовая конфигурация"
+    sentinel:
+      description: "Redis Sentinel для HA"
+      features:
+        - "Автоматический failover"
+        - "Мониторинг master/replica"
+        - "Провайдер конфигурации для клиентов"
+    cluster:
+      description: "Redis Cluster"
+      features:
+        - "Горизонтальное масштабирование"
+        - "Шардирование данных"
+        - "Высокая пропускная способность"
+
+  features:
+    - "Persistence настройки (RDB, AOF)"
+    - "Pub/Sub messaging"
+    - "Различные структуры данных"
+    - "SSL/TLS шифрование"
+
+  use_cases:
+    - "Кэширование"
+    - "Сессии пользователей"
+    - "Очереди задач"
+    - "Real-time leaderboards"
+    - "Rate limiting"
+```
+
+### ClickHouse в VK Cloud
+
+```yaml
+vk_cloud_clickhouse:
+  name: "Cloud Databases ClickHouse"
+  type: "Managed ClickHouse"
+  description: "Колоночная OLAP СУБД для аналитики"
+
+  cluster:
+    name: "cluster"
+    note: "Имя кластера всегда 'cluster' в VK Cloud"
+
+  configurations:
+    single: "Один инстанс"
+    replicated:
+      description: "Репликация между узлами"
+      replication_level: "На уровне таблиц (не БД)"
+      coordinator: "ZooKeeper"
+    sharded:
+      description: "Шардирование для масштабирования"
+      note: "Данные распределяются между шардами"
+
+  features:
+    - "Репликация через ZooKeeper"
+    - "Шардирование"
+    - "Материализованные представления"
+    - "Реплицируемые и распределённые таблицы"
+    - "Внешние словари (PostgreSQL, MySQL, Redis, MongoDB)"
+
+  sql_dialect:
+    extensions:
+      - "Внешние key-value словари"
+      - "Агрегатные функции для приближённых вычислений"
+    limitations:
+      - "Нет транзакций"
+      - "Нет точечных UPDATE/DELETE (только пакетные)"
+      - "Ограниченная поддержка JOIN"
+
+  use_cases:
+    - "Web-аналитика"
+    - "Логирование и мониторинг"
+    - "Business Intelligence"
+    - "Real-time дашборды"
+    - "Ad tech"
+```
+
+### Tarantool в VK Cloud
+
+```yaml
+vk_cloud_tarantool:
+  name: "Tarantool Cloud"
+  vendor: "VK Tech"
+  type: "Managed In-Memory Database"
+  description: "Высокопроизводительная in-memory платформа"
+
+  performance:
+    requests_per_second: "До 1 млн RPS"
+    latency: "Предсказуемая, не зависит от диска"
+
+  editions:
+    community:
+      name: "Community Edition"
+      configurations: ["Single", "Кластер"]
+      open_source: true
+    enterprise:
+      name: "Enterprise Edition"
+      pricing: "По запросу"
+      features:
+        - "Проприетарные модули"
+        - "Официальная поддержка"
+        - "Расширенная аналитика"
+        - "Работа с данными из разных источников"
+    data_grid:
+      name: "Tarantool Data Grid"
+      pricing: "По запросу"
+      description: "Система интеграции данных"
+      use_case: "Хранение и аналитика сложных бизнес-объектов"
+
+  cloud_benefits:
+    - "Запуск одной кнопкой"
+    - "Преднастроенная конфигурация"
+    - "Не нужно программировать на Lua"
+    - "Не нужно разбираться в шардировании"
+    - "Автоматический failover с консистентностью данных"
+    - "Квалифицированная поддержка VK Cloud"
+
+  certifications:
+    fstec:
+      certificate: "№4727"
+      valid_until: "Октябрь 2028"
+      level: "4 уровень доверия"
+      date: "27 апреля 2024"
+    astra_linux:
+      compatible: "Astra Linux Special Edition 1.7"
+      verified: "30 января 2024"
+
+  versions:
+    current: "Tarantool 2.11"
+    latest: "Tarantool DB 3.0 (октябрь 2025)"
+
+  use_cases:
+    - "Телеком-биллинг"
+    - "Финтех и банкинг"
+    - "Игровые серверы"
+    - "Session storage"
+    - "Кэширование с отложенной записью"
+    - "OLTP-системы"
+```
+
+### Arenadata DB в VK Cloud
+
+```yaml
+vk_cloud_arenadata:
+  name: "Arenadata DB (ADB)"
+  base: "Greenplum"
+  type: "MPP Data Warehouse"
+  launch: "Март 2024 (Казахстан), ранее доступен в России"
+
+  description: "Массивно-параллельная аналитическая СУБД"
+
+  editions:
+    community:
+      name: "Community"
+      support: "Без поддержки"
+    enterprise:
+      name: "Enterprise"
+      features:
+        - "Расширенный набор функций"
+        - "Техподдержка Arenadata"
+
+  capacity:
+    range: "От десятков терабайт до десятков петабайт"
+
+  features:
+    - "MPP архитектура"
+    - "PostgreSQL-совместимость"
+    - "Высокая скорость аналитических запросов"
+    - "Интеграция с Hadoop/Spark"
+    - "Интеграция с Cloud Big Data"
+    - "Совместимость с Cloud Streams"
+
+  replaces:
+    - "Oracle Exadata"
+    - "Teradata"
+    - "SAP HANA"
+
+  use_cases:
+    - "Enterprise Data Warehouse"
+    - "Единое корпоративное хранилище"
+    - "BI и отчётность"
+    - "Аналитика продаж"
+    - "Планирование закупок"
+    - "Данные для ML-моделей"
+
+  pricing:
+    model: "Аренда на месяц/день/час"
+    benefit: "Без затрат на внедрение инфраструктуры"
+```
+
+### OpenSearch в VK Cloud
+
+```yaml
+vk_cloud_opensearch:
+  name: "Cloud Databases OpenSearch"
+  launch_date: "8 июня 2023"
+  type: "Managed Search & Analytics Engine"
+  description: "Система поиска и анализа информации"
+
+  components:
+    - "OpenSearch (search engine)"
+    - "OpenSearch Dashboards (визуализация)"
+
+  deployment:
+    time: "Пара минут"
+    status: "Преднастроен и готов к работе"
+
+  features:
+    search:
+      - "Полнотекстовый поиск"
+      - "Распознавание синтаксиса"
+      - "Быстрый поиск по текстовой информации"
+    analytics:
+      - "Анализ логов"
+      - "Поиск аномалий"
+      - "Корреляционный анализ"
+      - "Machine Learning аналитика"
+    monitoring:
+      - "Мониторинг безопасности в реальном времени"
+
+  use_cases:
+    - "Аналитика трафика сайта"
+    - "Поиск в приложениях"
+    - "Рекомендательные системы"
+    - "Мониторинг безопасности"
+    - "Логирование и observability"
+    - "E-commerce поиск"
+
+  benefit: "Сокращение затрат на разработку поисковых решений"
+```
+
+### Cloud Streams (Kafka)
+
+```yaml
+vk_cloud_streams:
+  name: "Cloud Streams"
+  type: "Managed Apache Kafka"
+  description: "Сервис потоковой обработки данных"
+
+  integrations:
+    vk_cloud:
+      - "Все управляемые СУБД VK Cloud"
+      - "Cloud Big Data"
+    external:
+      - "Elasticsearch"
+      - "Couchbase"
+      - "Cassandra"
+    arenadata:
+      - "Arenadata Hadoop"
+      - "Arenadata DB (Greenplum)"
+
+  use_cases:
+    - "Event streaming"
+    - "Real-time data pipelines"
+    - "Интеграция микросервисов"
 ```
 
 ### VDP Lakehouse
@@ -505,6 +869,37 @@ vdp_lakehouse:
     - "Data Lake"
     - "ETL/ELT пайплайны"
     - "ML Feature Store"
+```
+
+### Тарификация VK Cloud Databases
+
+```yaml
+vk_cloud_pricing:
+  model: "Pay-as-you-go"
+  billing: "Посекундная тарификация"
+  currencies:
+    russia: "Рубли (₽)"
+    kazakhstan: "Тенге (₸)"
+
+  trial:
+    bonus: "5000 ₽ / 24000 ₸"
+    duration: "60 дней"
+    note: "Для тестирования сервисов"
+
+  what_you_pay_for:
+    - "Вычислительные ресурсы (vCPU, RAM)"
+    - "Дисковое пространство"
+    - "Резервные копии (Cloud Storage)"
+    - "Сетевой трафик"
+
+  calculators:
+    russia: "https://mcs.mail.ru/pricing"
+    kazakhstan: "https://vkcloud.kz/pricelist/"
+
+  enterprise_pricing:
+    tarantool_enterprise: "По запросу"
+    tarantool_data_grid: "По запросу"
+    postgres_pro_enterprise: "По запросу"
 ```
 
 ---
