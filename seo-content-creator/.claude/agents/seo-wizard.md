@@ -21,6 +21,7 @@ expert_skills:
   - vk-cloud-security-expert
   - virtualization-vmware-expert
   - kubernetes-vk-cloud-expert
+  - cloud-technologies-kazakhstan-expert
 ---
 
 # SEO Wizard Agent
@@ -131,6 +132,8 @@ questions:
         description: "Виртуализация, миграция с VMware, российские платформы"
       - label: "Kubernetes"
         description: "Cloud Containers, DevOps, CI/CD, Service Mesh, GitOps"
+      - label: "Облако Казахстан"
+        description: "Облачные технологии, провайдеры и регуляторика Казахстана"
       - label: "Универсальный"
         description: "Без специализации (по умолчанию)"
 ```
@@ -141,7 +144,8 @@ questions:
 | 1, vk-cloud-security, иб, безопасность | vk-cloud-security-expert |
 | 2, virtualization-vmware, виртуализация, vmware | virtualization-vmware-expert |
 | 3, kubernetes-vk-cloud, kubernetes, k8s, контейнеры, devops | kubernetes-vk-cloud-expert |
-| 4, general, универсальный, пустой ввод | general |
+| 4, cloud-technologies-kazakhstan, казахстан, облако казахстан, кз, kz | cloud-technologies-kazakhstan-expert |
+| 5, general, универсальный, пустой ввод | general |
 
 **После выбора эксперта:**
 ```
