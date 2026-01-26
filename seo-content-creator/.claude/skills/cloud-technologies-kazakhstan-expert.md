@@ -811,22 +811,41 @@ government_initiatives:
 
 ## ЦЕНТРЫ ОБРАБОТКИ ДАННЫХ
 
-### Статистика рынка ЦОД (iKS-Consulting 2024)
+### Статистика рынка ЦОД (iKS-Consulting, TAdviser 2024-2025)
 
 ```yaml
 datacenter_market_statistics:
-  # Общие показатели
+  # Общие показатели (iKS-Consulting)
   total_racks_2023: "3463 стойки"
   total_racks_2024: "3775 стоек (+9%)"
   total_racks_current: "~12 000 стоек"
   planned_expansion: "+6000 стоек"
 
-  # Лидер рынка
-  market_leader:
-    company: "АО Казахтелеком"
-    market_share: "44.8%"
-    racks: "1522 стойки"
-    note: "Включает коммерческие ЦОДы и госинфраструктуру"
+  # Прогноз iKS-Consulting
+  market_forecast_2025: "$57 млн"
+
+  # Топ-3 операторов по количеству стоек (TAdviser)
+  market_leaders_by_racks:
+    - company: "АО Казахтелеком"
+      racks: "1522 стойки"
+      market_share: "44.8%"
+      note: "Включает коммерческие ЦОДы и госинфраструктуру"
+    - company: "Транстелеком"
+      racks: "851 стойка"
+      market_share: "24.6%"
+    - company: "НИТ"
+      racks: "280 стоек"
+      market_share: "8.1%"
+
+  # Структура доходов 2023
+  revenue_structure_2023:
+    colocation: "87.1% (22.13 млрд тенге)"
+    other_services: "12.9%"
+
+  # Географический дисбаланс
+  geographic_imbalance:
+    concentration: "Высокая концентрация в Алматы и Астане"
+    challenge: "Дефицит мощностей в регионах"
 
   # Дисбаланс рынка
   market_challenge:
@@ -916,23 +935,105 @@ datacenters:
     - datacenter Kazakhstan
 ```
 
-### Крупные инвестиционные проекты
+### Крупные инвестиционные проекты 2025-2030
 
 ```yaml
-major_investments:
+major_investments_2025:
   gk_hyperscale:
-    announcement: "Весна 2025"
-    investor: "GK Hyperscale Ltd (Сингапур)"
-    amount: "$1.5 млрд"
-    scope: "2 гипермасштабируемых ЦОД"
-    purpose:
-      - "Облачные технологии"
-      - "Искусственный интеллект"
-      - "Высокопроизводительные вычисления (HPC)"
+    name: "GK Hyperscale Ltd"
+    investor_country: "Сингапур"
+    announcement: "18 марта 2025 (постановление премьер-министра Олжаса Бектенова)"
 
-  uae_agreement:
-    announcement: "Май 2024"
-    description: "Соглашение Казахстан-ОАЭ о строительстве ЦОД"
+    total_investment: "$2.7 млрд"
+    datacenter_investment: "$1.5 млрд"
+    energy_investment: "$1.2 млрд (электростанция, ветропарк, накопители)"
+
+    capacity:
+      total: "200 МВт"
+      main_dc: "100 МВт"
+      backup_dc: "100 МВт"
+
+    locations:
+      main: "Индустриальная зона Акмолинской области (рядом с Астаной)"
+      backup: "Карагандинская область, г. Темиртау"
+
+    technical_standard: "Tier III"
+
+    timeline:
+      construction_start: "I квартал 2026"
+      first_module: "2027"
+      full_deployment: "2030"
+
+    employment: "360+ специалистов"
+    revenue_model: "50%+ выручки от экспортных контрактов"
+
+    purpose:
+      - "Развитие искусственного интеллекта в регионе"
+      - "Образовательные программы (Tomorrow School)"
+      - "R&D центры технологических компаний"
+
+    strategic_goal: "Привлечение Microsoft, Google, Amazon"
+
+    keywords:
+      - GK Hyperscale Казахстан
+      - гипермасштабируемый ЦОД
+      - сингапурские инвестиции
+
+  akashi_datacenter:
+    name: "Akashi Data Center"
+    description: "Крупнейший в Центральной Азии дата-центр"
+    owner: "Freedom Holding Corp. (Тимур Турлов)"
+    general_director: "Владислав Минкевич"
+
+    partnership:
+      partner: "China Mobile International"
+      agreement: "Меморандум на Форуме цифровой экономики ШОС (11 июля 2025, Тяньцзинь)"
+
+    investment: "$210 млн"
+    payback: "4 года"
+
+    capacity:
+      phase_1: "50 МВт"
+      expandable_to: "100 МВт"
+      total_racks: "4200 стоек"
+
+    location: "Астана"
+    technical_standard: "Tier IV (высший уровень надёжности Uptime Institute)"
+
+    timeline:
+      phase_1_launch: "Q1 2026"
+      completion: "2026"
+
+    current_status:
+      reserved_capacity: "40% мощностей первой фазы"
+      inquiries: "500+ международных запросов"
+      negotiations: "Google, Amazon, Microsoft"
+      mou_signed:
+        - "China Mobile International"
+        - "Virtuozzo"
+
+    supporting_infrastructure:
+      power_station: "1 ГВт газовая электростанция (в разработке)"
+      sustainability: "Интеграция ВИЭ для углеродной нейтральности"
+
+    keywords:
+      - Akashi Data Center
+      - Freedom Holding ЦОД
+      - Tier IV Казахстан
+
+  freedom_telecom_holding:
+    name: "Freedom Telecom Holding"
+    announcement: "6 февраля 2025"
+    agreement: "Меморандум с Министерством цифрового развития"
+    scope:
+      - "Строительство волоконно-оптической гипермагистрали"
+      - "Создание ЦОД не ниже TIER-3"
+
+  dolina_tsod_ekibastuz:
+    name: "Долина ЦОДов"
+    location: "Экибастуз"
+    launch: "Январь 2026"
+    purpose: "Развитие экосистемы искусственного интеллекта"
 
   kazakhtelecom_expansion:
     modular_dc:
@@ -941,10 +1042,19 @@ major_investments:
       announcement: "Февраль 2025"
     network: "27 ЦОДов в крупных городах и областных центрах"
     cloud_focus: "50% ресурсов под облачные услуги"
+    ai_plans:
+      - "Инфраструктура с GPU для ИИ и ML"
+      - "Внедрение ИИ в колл-центры"
+      - "Собственная ИИ-платформа"
 
   qazcloud_plans:
     description: "Создание ЦОД с GPU для ИИ"
     timeline: "2025"
+
+  market_context:
+    global_dc_market_2024: "$350 млрд"
+    global_dc_market_2034: "$1 трлн"
+    kazakhstan_forecast_2025: "$57 млн (iKS-Consulting)"
 ```
 
 ### Развитие инфраструктуры
@@ -1152,31 +1262,111 @@ telecom_sector:
 
 ## ТЕХНОЛОГИЧЕСКИЕ ТРЕНДЫ
 
+### IT-тренды Казахстана 2025 (GlobalCIO)
+
+```yaml
+it_trends_2025:
+  ai_national_goals:
+    training_target: "5 млн человек обучить навыкам ИИ"
+    unicorn_target: "5 компаний-единорогов к 2029"
+    export_target: "$5 млрд экспорта AI-решений к 2029"
+
+  oylan_ai:
+    name: "Oylan"
+    developer: "Nazarbayev University"
+    languages: ["Казахский", "Английский", "Русский"]
+    capabilities: "Текст и изображения"
+
+  e_government:
+    global_ranking: "24 место в мире"
+    population_access: "93% населения имеют доступ к eGov"
+    qr_documents: "23 млн документов с QR-подписью ежегодно"
+
+  startup_ecosystem:
+    venture_capital_share: "До 20% всего венчурного капитала Центральной Азии"
+    astana_hub_participants: "1500+"
+    astana_hub_revenue_2024: "620 млрд тенге"
+
+  it_export:
+    growth_2024: "+57%"
+    volume_2024: "$30.5 млн"
+
+  key_sectors:
+    - "Финансы"
+    - "E-commerce"
+    - "Сельское хозяйство"
+    - "Логистика"
+
+  biometrics:
+    system: "Alaqan"
+    status: "Региональное расширение"
+
+  government_support:
+    - "Стипендиальная программа Tech Orda"
+    - "Налоговые льготы для экспорта ПО"
+    - "QazCloud Academy"
+    - "Партнёрства с Microsoft, Kaspersky, KPMG Kazakhstan"
+```
+
 ### AI и машинное обучение
 
 ```yaml
 ai_ml_kazakhstan:
   current_state:
-    description: "Активное развитие, государственная поддержка"
-    initiatives:
-      - "AI в госсекторе"
-      - "Финтех AI (Kaspi, банки)"
-      - "Образовательные программы"
+    description: "Приоритетное направление государственной политики"
+    government_goals:
+      - "5 млн человек обучить навыкам ИИ"
+      - "5 компаний-единорогов к 2029"
+      - "$5 млрд экспорта AI-решений к 2029"
+
+  oylan_ai_model:
+    name: "Oylan"
+    developer: "Nazarbayev University"
+    languages: ["Казахский", "Английский", "Русский"]
+    capabilities: ["Обработка текста", "Обработка изображений"]
+
+  initiatives:
+    - "AI в госсекторе"
+    - "Финтех AI (Kaspi, банки)"
+    - "Образовательные программы (Tech Orda)"
+    - "QazCloud Academy"
+    - "Партнёрства с Microsoft, Kaspersky"
 
   use_cases:
     - "Чат-боты для госуслуг"
     - "Антифрод в банкинге"
     - "Компьютерное зрение (безопасность)"
     - "Предиктивная аналитика"
+    - "Биометрическая аутентификация (Alaqan)"
 
   infrastructure:
     - "Облачные GPU (международные провайдеры)"
+    - "VK Cloud ML Platform (локализованная)"
     - "Развитие локальных ML-платформ"
+    - "ЦОДы с GPU (QazCloud, Kazakhtelecom — планы 2025)"
+
+  vk_cloud_ml_platform:
+    name: "Cloud ML Platform"
+    description: "Готовое решение с преднастроенными средами для ML"
+    components:
+      - "JupyterHub"
+      - "MLflow + JupyterHub"
+      - "MLflow Deploy"
+      - "Cloud Spark"
+    compliance: "Локализация по закону № 94-V РК"
+    clients: "8000+ клиентов (МСБ и корпорации)"
+    notable_clients:
+      - "Kassa24"
+      - "Voximplant"
+      - "Daribar.kz"
+      - "Битрикс 24"
 
   keywords:
     - AI Казахстан
     - машинное обучение КЗ
     - искусственный интеллект
+    - Oylan AI
+    - VK Cloud ML Platform
 ```
 
 ### Блокчейн и Web3
@@ -1345,7 +1535,7 @@ article_structure:
 
 ```yaml
 sources:
-  # Исследования рынка
+  # Исследования рынка 2024-2025
   market_research:
     - url: "https://profit.kz/articles/14912/Issledovanie-rinok-kommercheskih-data-centrov-i-oblachnogo-provajdinga-v-Kazahstane-2024/"
       description: "iKS-Consulting: Исследование рынка ЦОД и облачного провайдинга 2024"
@@ -1358,10 +1548,13 @@ sources:
       key_data:
         - "10-11% B2B используют облака"
         - "Топ-5 IaaS провайдеров"
+    - url: "https://www.tadviser.ru/index.php/Статья:ЦОД_(рынок_Казахстана)_Коммерческие_дата-центры"
+      description: "TAdviser: Рынок ЦОД Казахстана"
+      key_data:
+        - "Казахтелеком: 44.8% рынка (1522 стойки)"
+        - "Транстелеком: 24.6% (851 стойка)"
     - url: "https://bluescreen.kz/itoghi-2024-ghoda-dlia-qazcloud-razvitiie-oblachnykh-tiekhnologhii-novyie-triendy-i-pierspiektivy-rynka/"
       description: "QazCloud: Итоги 2024 года"
-    - url: "https://bluescreen.kz/triendy-rynka-oblachnykh-siervisov-i-it-infrastruktury-kazakhstana-proghnoz-na-2024-ghod/"
-      description: "Тренды облачного рынка Казахстана 2024"
     - url: "https://serverspace.kz/about/blog/top-oblachnyh-provajderov-kazahstana-2024/"
       description: "Топ облачных провайдеров Казахстана 2024"
     - source: "IDC"
@@ -1369,6 +1562,23 @@ sources:
       key_data:
         - "Прогноз к 2026: $455.4 млн"
         - "CAGR 22.5%"
+
+  # Новости 2025 года
+  news_2025:
+    - url: "https://kz.kursiv.media/2025-03-30/zhnb-singapurkzcod/"
+      description: "GK Hyperscale: инвестиции $2.7 млрд в ЦОДы Казахстана"
+      date: "Март 2025"
+    - url: "https://kz.kursiv.media/2025-10-22/eto-horoshij-biznes-kak-v-kazahstane-stroyat-krupnejshij-v-cza-czentr-obrabotki-dannyh/"
+      description: "Akashi Data Center: крупнейший ЦОД Центральной Азии"
+      date: "Октябрь 2025"
+    - url: "https://digitalbusiness.kz/2025-03-18/v-kazahstane-nachinaetsya-stroitelstvo-gipermasshtabiruemogo-tsod-investor-iz-singapura-videlil-milliardi/"
+      description: "Строительство гипермасштабируемого ЦОД"
+      date: "Март 2025"
+    - url: "https://globalcio.com/longread/Digital-Strategies-of-Kazakhstan/"
+      description: "Key IT Trends in Kazakhstan 2025"
+    - url: "https://designer.kz/2025/05/vk-cloud-launches-machine-learning-platform-in-kazakhstan/"
+      description: "VK Cloud ML Platform запущена в Казахстане"
+      date: "Май 2025"
 
   # Государственные ресурсы
   government:
@@ -1378,8 +1588,8 @@ sources:
       description: "Министерство цифрового развития РК"
     - url: "https://aifc.kz/"
       description: "МФЦА — Международный финансовый центр Астана"
-    - url: "https://www.gov.kz/uploads/2024/2/12/0c6500bbaaa233b76e0c1101971415f4_original.8081299.pdf"
-      description: "ИКТ-рынок Казахстана: текущее состояние и прогнозы"
+    - url: "https://invest.gov.kz/ru/doing-business-here/invest-projects/28616/"
+      description: "Инвестиционные проекты: строительство ЦОД"
 
   # Отраслевые СМИ
   industry_media:
@@ -1387,12 +1597,14 @@ sources:
       description: "Profit.kz — IT-новости Казахстана"
     - url: "https://bluescreen.kz/"
       description: "Bluescreen.kz — технологические новости"
-    - url: "https://kursiv.kz/"
+    - url: "https://kz.kursiv.media/"
       description: "Kursiv — деловое издание"
     - url: "https://forbes.kz/"
       description: "Forbes Kazakhstan"
-    - url: "https://kapital.kz/"
-      description: "Kapital.kz — деловые новости"
+    - url: "https://digitalbusiness.kz/"
+      description: "Digital Business — цифровой бизнес"
+    - url: "https://www.iksmedia.ru/"
+      description: "IKS Media — телеком и ИТ"
 
   # Облачные провайдеры
   providers:
@@ -1406,8 +1618,6 @@ sources:
       description: "PS Cloud (PS Company)"
     - url: "https://telecom.kz/"
       description: "Казахтелеком"
-    - url: "https://kcell.kz/"
-      description: "Kcell"
     - url: "https://serverspace.kz/"
       description: "Serverspace Kazakhstan"
 
@@ -1421,7 +1631,7 @@ sources:
   # Международные источники
   international:
     - url: "https://www.mordorintelligence.com/industry-reports/kazakhstan-ict-market"
-      description: "Mordor Intelligence: Kazakhstan ICT Market"
+      description: "Mordor Intelligence: Kazakhstan ICT Market 2025-2030"
     - url: "https://www.statista.com/outlook/tmo/public-cloud/kazakhstan"
       description: "Statista: Public Cloud Kazakhstan"
 ```
