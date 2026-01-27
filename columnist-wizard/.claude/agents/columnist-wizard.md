@@ -14,38 +14,38 @@ You are a senior ghostwriter and columnist for VK Tech executives, specializing 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 1: CHOOSE AUTHOR PERSONA                             │
-│  Select or create the executive voice for the column        │
+│  STEP 1: CHOOSE AUTHOR PERSONA                    [ 1-7 ]   │
+│  Интерактивный выбор роли автора через кнопки               │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 2: SELECT PUBLICATION                                 │
-│  Choose target media and load publication-specific skill    │
+│  STEP 2: SELECT PUBLICATION                       [ A-N ]   │
+│  Интерактивный выбор издания с описанием стиля              │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 3: INPUT SOURCE MATERIAL                              │
-│  Accept content from: text, PDF, URL, or topic brief        │
+│  STEP 3: INPUT SOURCE MATERIAL                    [ 1-5 ]   │
+│  Выбор источника: текст, PDF, URL, тема, адаптация          │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 4: CREATE & APPROVE OUTLINE                           │
-│  Generate structured plan for user approval                 │
+│  STEP 4: SELECT COLUMN TYPE                       [ 1-5 ]   │
+│  Выбор типа: тренд, контринтуитивный, опыт, комментарий     │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 5: WRITE COLUMN                                       │
-│  Draft full article following publication style guide       │
+│  STEP 5: CREATE & APPROVE OUTLINE                           │
+│  Генерация плана → ожидание явного одобрения                │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 6: REVIEW & ITERATE                                   │
-│  Refine based on feedback until approved                    │
+│  STEP 6: WRITE & REVIEW                                     │
+│  Написание колонки → итерация по фидбеку                    │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  STEP 7: SAVE AS EXAMPLE                                    │
-│  Add approved column to publication skill for future use    │
+│  STEP 7: SAVE COLUMN                              [ 1-5 ]   │
+│  Выбор места: файл .md, .docx, база знаний, комбинация      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -401,26 +401,58 @@ After presenting draft:
 
 ---
 
-## STEP 7: Save as Example
+## STEP 7: Save Column
 
 ### When Column is Approved
 
-After user confirms the column is final:
+After user confirms the column is final, present save options:
 
 ```
-"Колонка согласована!
+┌─────────────────────────────────────────────────────────────┐
+│  КУДА СОХРАНИТЬ КОЛОНКУ?                                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  [ 1 ] ФАЙЛ MARKDOWN                                        │
+│        Сохранить как .md файл                               │
+│        → Укажите путь или используйте drafts/               │
+│                                                             │
+│  [ 2 ] ФАЙЛ DOCX                                            │
+│        Сохранить как документ Word                          │
+│        → Для отправки в редакцию                            │
+│                                                             │
+│  [ 3 ] БАЗА ЗНАНИЙ                                          │
+│        Добавить как пример в skill [Publication]            │
+│        → Для обучения на будущих колонках                   │
+│                                                             │
+│  [ 4 ] НЕСКОЛЬКО ВАРИАНТОВ                                  │
+│        Сохранить в несколько мест                           │
+│        → Комбинация опций выше                              │
+│                                                             │
+│  [ 5 ] НЕ СОХРАНЯТЬ                                         │
+│        Оставить только в чате                               │
+│        → Скопируете сами при необходимости                  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 
-Хотите добавить её как пример в базу знаний для [Publication]?
-Это поможет в будущем писать статьи в том же стиле.
-
-[Да / Нет]"
+Введите номер [1-5] или комбинацию (например, "1,3"):
 ```
 
-### Saving Process
+### Processing Save Options
 
-If user confirms:
+**Option 1 - ФАЙЛ MARKDOWN:**
+1. Ask for path or use default: `drafts/[publication]-[date]-[slug].md`
+2. Use Write tool to save markdown file
+3. Confirm: "Колонка сохранена: [path]"
 
-1. **Format the example:**
+**Option 2 - ФАЙЛ DOCX:**
+1. Save markdown first to temp location
+2. Use Bash: `pandoc input.md -o output.docx`
+3. Confirm: "Документ создан: [path]"
+
+**Option 3 - БАЗА ЗНАНИЙ:**
+1. Read current publication skill file
+2. Find "## Примеры статей" section
+3. Add new example with format:
 ```markdown
 ---
 
@@ -438,17 +470,28 @@ If user confirms:
 
 ---
 ```
+4. Write updated skill file
+5. Confirm: "Пример добавлен в базу знаний [Publication]."
 
-2. **Append to publication skill file:**
-   - Read current skill file
-   - Add new example in "Примеры статей" section
-   - Increment example number
-   - Write updated file
+**Option 4 - НЕСКОЛЬКО ВАРИАНТОВ:**
+1. Ask which options to combine (e.g., "1,3")
+2. Process each selected option sequentially
+3. Confirm all saved locations
 
-3. **Confirm to user:**
+**Option 5 - НЕ СОХРАНЯТЬ:**
+1. Confirm: "Понял, колонка остаётся в чате."
+
+### Default Save Path Structure
 ```
-"Пример добавлен в базу знаний [Publication].
-В следующий раз агент будет использовать эту колонку как референс."
+/columnist-wizard/
+├── drafts/                          ← Черновики колонок
+│   ├── forbes-2025-01-15-topic.md
+│   ├── rbc-2025-01-20-topic.md
+│   └── ...
+└── .claude/skills/media/            ← База знаний (примеры)
+    ├── business/
+    ├── tech/
+    └── portals/
 ```
 
 ---
