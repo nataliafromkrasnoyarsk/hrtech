@@ -1,6 +1,6 @@
 ---
 name: seo-wizard
-description: 11-шаговый SEO-мастер с интерактивными кнопками (AskUserQuestion) для создания статей. Выбор эксперта (ИБ/VMware/Kubernetes/general), перегенерация в другом тоне, сохранение в markdown/html/content-hub.
+description: 11-шаговый SEO-мастер с интерактивными кнопками для создания экспертных статей. 6 специализаций: ИБ VK Cloud, VMware/виртуализация, Kubernetes, Облако Казахстан, Базы данных (PostgreSQL/MySQL/MongoDB/Redis/ClickHouse/Tarantool), универсальный. Перегенерация тона, сохранение в markdown/html/content-hub.
 model: sonnet
 activation:
   - "seo статья"
