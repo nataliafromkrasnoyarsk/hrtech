@@ -20,6 +20,7 @@
   - [SEO Content Creator](#seo-content-creator)
   - [Landing Creator](#landing-creator)
   - [Landing Page Updater](#landing-page-updater)
+  - [VK Cloud Docs Agent](#vk-cloud-docs-agent)
 - [YAML-промты](#yaml-промты)
 - [Структура репозитория](#структура-репозитория)
 
@@ -31,14 +32,15 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        COMMANDS (9)                             │
+│                        COMMANDS (10)                            │
 │  /article-workflow  /draft-article  /trend-research            │
 │  /write-column  /write-press-release  /create-event            │
 │  /seo-create-article  /create-landing  /update-landing         │
+│  /write-vk-cloud-article                                        │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                        AGENTS (11)                              │
+│                        AGENTS (12)                              │
 ├─────────────────────────────────────────────────────────────────┤
 │  RESEARCH        │  CREATION           │  QUALITY CONTROL      │
 │  ────────────    │  ─────────          │  ───────────────      │
@@ -50,6 +52,7 @@
 │                  │  SEO Wizard         │                       │
 │                  │  Landing Creator    │                       │
 │                  │  Landing Updater    │                       │
+│                  │  VK Cloud Docs      │                       │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -64,7 +67,7 @@
 
 ## Агенты
 
-11 специализированных AI-агентов, каждый с уникальной ролью:
+12 специализированных AI-агентов, каждый с уникальной ролью:
 
 | Агент | Модуль | Назначение |
 |-------|--------|------------|
@@ -79,12 +82,13 @@
 | **SEO Wizard** | seo-content-creator | SEO-статьи через интерактивный wizard |
 | **Landing Content Creator** | landing-creator | Создание контента лендингов (7 типов, 30+ блоков) |
 | **Landing Updater Wizard** | landing-updater | Обновление текстов лендингов |
+| **VK Cloud Docs Writer** | vk-cloud-docs-agent | Технические статьи о VK Cloud на основе официальной документации |
 
 ---
 
 ## Команды
 
-9 интерактивных команд для запуска workflows:
+10 интерактивных команд для запуска workflows:
 
 | Команда | Агенты | Описание |
 |---------|--------|----------|
@@ -97,6 +101,7 @@
 | `/seo-create-article` | SEO Wizard | SEO-статья через wizard |
 | `/create-landing` | Landing Content Creator | Создание контента лендинга (7 типов) |
 | `/update-landing` | Landing Updater | Обновление текста лендинга |
+| `/write-vk-cloud-article` | VK Cloud Docs Writer | Статья о сервисах VK Cloud |
 
 ---
 
@@ -359,6 +364,55 @@
 
 ---
 
+### VK Cloud Docs Agent
+
+**Агент:** VK Cloud Docs Writer
+**Команда:** `/write-vk-cloud-article`
+
+Создание технических статей о сервисах VK Cloud на основе официальной документации.
+
+**Источник данных:** [github.com/vk-cs/docs-public](https://github.com/vk-cs/docs-public)
+
+```
+ШАГ 1: Выбор типа статьи (обзор / туториал / сравнение / best practices)
+    ↓
+ШАГ 2: Выбор сервиса VK Cloud
+    ↓
+ШАГ 3: Исследование официальной документации
+    ↓
+ШАГ 4: Определение целевой аудитории
+    ↓
+ШАГ 5: Создание и одобрение плана
+    ↓
+ШАГ 6: Написание статьи
+    ↓
+ШАГ 7: Проверка и сохранение
+```
+
+**Покрытые сервисы VK Cloud:**
+
+| Категория | Сервисы |
+|-----------|---------|
+| Compute | Cloud Servers, Kubernetes aaS, Serverless |
+| Databases | PostgreSQL, MySQL, MongoDB, Redis, ClickHouse, Kafka |
+| Storage | Object Storage (S3), File Storage, Backup |
+| Networks | Virtual Networks, Load Balancers, CDN, VPN |
+| Data & ML | Big Data, ML Platform, Cloud Vision, Cloud Voice |
+| Security | WAF, DDoS Protection, Key Manager |
+| Monitoring | Cloud Monitoring, Cloud Logging |
+
+**Типы статей:**
+- Обзорная статья
+- Туториал / How-to
+- Сравнение сервисов
+- Best Practices
+- Гайд по миграции
+- Интеграция с другими сервисами
+
+**Skill:** `vk-cloud-knowledge`
+
+---
+
 ## YAML-промты
 
 **Расположение:** `prompts/`
@@ -378,7 +432,7 @@ Standalone промты для использования без Claude Code:
 ```
 prompt-contents/
 ├── .claude/
-│   └── commands/                        # Глобальные slash-команды (8)
+│   └── commands/                        # Глобальные slash-команды (10)
 │
 ├── trend-researcher/                    # Research & Strategy
 │   └── .claude/
@@ -441,6 +495,21 @@ prompt-contents/
 │       ├── agents/landing-updater-wizard.md
 │       └── skills/landing-knowledge/
 │
+├── vk-cloud-docs-agent/                 # VK Cloud Documentation
+│   └── .claude/
+│       ├── agents/vk-cloud-docs-writer.md
+│       └── skills/vk-cloud-knowledge/
+│
+├── content-hub/                         # Централизованное хранилище
+│   ├── columns/
+│   ├── tech-articles/
+│   ├── seo-articles/
+│   ├── landings/
+│   ├── events/
+│   ├── press-releases/
+│   ├── research/
+│   └── vk-cloud-articles/
+│
 ├── prompts/                             # Standalone YAML
 ├── articles/                            # Examples
 └── README.md
@@ -452,11 +521,11 @@ prompt-contents/
 
 | Метрика | Значение |
 |---------|----------|
-| Агентов | 11 |
-| Команд | 9 |
-| Skills | 25+ |
+| Агентов | 12 |
+| Команд | 10 |
+| Skills | 26+ |
 | Изданий (Columnist) | 14 |
-| Модулей | 10 |
+| Модулей | 11 |
 
 ---
 
