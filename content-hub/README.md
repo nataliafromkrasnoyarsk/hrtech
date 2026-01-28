@@ -30,9 +30,13 @@ content-hub/
 │   ├── drafts/           # Черновики пресс-релизов
 │   └── published/        # Опубликованные пресс-релизы
 │
-└── research/             # Tech Content Strategist
-    ├── drafts/           # Черновики исследований
-    └── published/        # Финальные отчёты
+├── research/             # Tech Content Strategist
+│   ├── drafts/           # Черновики исследований
+│   └── published/        # Финальные отчёты
+│
+└── vk-cloud-articles/    # VK Cloud Docs Writer
+    ├── drafts/           # Черновики статей о VK Cloud
+    └── published/        # Опубликованные статьи
 ```
 
 ## Агенты и категории
@@ -46,6 +50,7 @@ content-hub/
 | **Event Wizard** | `events/` | Страницы мероприятий |
 | **Press Release Wizard** | `press-releases/` | Пресс-релизы |
 | **Tech Content Strategist** | `research/` | Исследования трендов и идеи контента |
+| **VK Cloud Docs Writer** | `vk-cloud-articles/` | Технические статьи о сервисах VK Cloud |
 
 ## Workflow
 
