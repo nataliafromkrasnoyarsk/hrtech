@@ -21,6 +21,7 @@
   - [Landing Creator](#landing-creator)
   - [Landing Page Updater](#landing-page-updater)
   - [VK Cloud Docs Agent](#vk-cloud-docs-agent)
+  - [VK WorkSpace Case Writer](#vk-workspace-case-writer)
 - [YAML-промты](#yaml-промты)
 - [Структура репозитория](#структура-репозитория)
 
@@ -32,15 +33,15 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        COMMANDS (10)                            │
+│                        COMMANDS (11)                            │
 │  /article-workflow  /draft-article  /trend-research            │
 │  /write-column  /write-press-release  /create-event            │
 │  /seo-create-article  /create-landing  /update-landing         │
-│  /write-vk-cloud-article                                        │
+│  /write-vk-cloud-article  /write-case                          │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                        AGENTS (12)                              │
+│                        AGENTS (13)                              │
 ├─────────────────────────────────────────────────────────────────┤
 │  RESEARCH        │  CREATION           │  QUALITY CONTROL      │
 │  ────────────    │  ─────────          │  ───────────────      │
@@ -53,6 +54,7 @@
 │                  │  Landing Creator    │                       │
 │                  │  Landing Updater    │                       │
 │                  │  VK Cloud Docs      │                       │
+│                  │  VK WorkSpace Case  │                       │
 └───────────────────────────┬─────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -67,7 +69,7 @@
 
 ## Агенты
 
-12 специализированных AI-агентов, каждый с уникальной ролью:
+13 специализированных AI-агентов, каждый с уникальной ролью:
 
 | Агент | Модуль | Назначение |
 |-------|--------|------------|
@@ -83,12 +85,13 @@
 | **Landing Content Creator** | landing-creator | Создание контента лендингов (7 типов, 30+ блоков) |
 | **Landing Updater Wizard** | landing-updater | Обновление текстов лендингов |
 | **VK Cloud Docs Writer** | vk-cloud-docs-agent | Технические статьи о VK Cloud на основе официальной документации |
+| **VK WorkSpace Case Writer** | vk-workspace-case-writer | Кейсы (истории успеха) клиентов VK WorkSpace |
 
 ---
 
 ## Команды
 
-10 интерактивных команд для запуска workflows:
+11 интерактивных команд для запуска workflows:
 
 | Команда | Агенты | Описание |
 |---------|--------|----------|
@@ -102,6 +105,7 @@
 | `/create-landing` | Landing Content Creator | Создание контента лендинга (7 типов) |
 | `/update-landing` | Landing Updater | Обновление текста лендинга |
 | `/write-vk-cloud-article` | VK Cloud Docs Writer | Статья о сервисах VK Cloud |
+| `/write-case` | VK WorkSpace Case Writer | Кейс (история успеха) клиента VK WorkSpace |
 
 ---
 
@@ -413,6 +417,48 @@
 
 ---
 
+### VK WorkSpace Case Writer
+
+**Агент:** VK WorkSpace Case Writer
+**Команда:** `/write-case`
+
+Создание кейсов (историй успеха клиентов) для платформы VK WorkSpace.
+
+**Источник данных:** [workspace.vk.ru/blog/hubs/cases](https://workspace.vk.ru/blog/hubs/cases/)
+
+```
+ШАГ 1: Выбор типа кейса (внедрение / миграция / масштабирование / отраслевое)
+    ↓
+ШАГ 2: Профиль клиента (отрасль, размер, география)
+    ↓
+ШАГ 3: Проблема/Вызов до внедрения
+    ↓
+ШАГ 4: Решение — внедрённые продукты VK WorkSpace
+    ↓
+ШАГ 5: Результаты и метрики
+    ↓
+ШАГ 6: Согласование структуры (outline)
+    ↓
+ШАГ 7: Написание и ревью
+```
+
+**Типы кейсов:**
+
+| Тип | Описание |
+|-----|----------|
+| Внедрение | Первичное внедрение VK WorkSpace |
+| Миграция | Переход с MS 365, Google Workspace, Slack и др. |
+| Масштабирование | Расширение на новые подразделения |
+| Отраслевое решение | Специфика для индустрии |
+
+**Поддерживаемые отрасли:** Госсектор, IT, образование, ритейл, медицина, финансы, производство, НКО
+
+**Продукты VK WorkSpace:** Почта, Мессенджер, Видеоконференции, Календарь, Диск, Документы, Задачи, Проекты, Доска, Опросы, Заметки
+
+**Skill:** `vk-workspace-knowledge`
+
+---
+
 ## YAML-промты
 
 **Расположение:** `prompts/`
@@ -500,6 +546,12 @@ prompt-contents/
 │       ├── agents/vk-cloud-docs-writer.md
 │       └── skills/vk-cloud-knowledge/
 │
+├── vk-workspace-case-writer/            # VK WorkSpace Case Studies
+│   └── .claude/
+│       ├── agents/vk-workspace-case-writer.md
+│       ├── skills/vk-workspace-knowledge/
+│       └── commands/write-case.md
+│
 ├── content-hub/                         # Централизованное хранилище
 │   ├── columns/
 │   ├── tech-articles/
@@ -521,11 +573,11 @@ prompt-contents/
 
 | Метрика | Значение |
 |---------|----------|
-| Агентов | 12 |
-| Команд | 10 |
-| Skills | 26+ |
+| Агентов | 13 |
+| Команд | 11 |
+| Skills | 27+ |
 | Изданий (Columnist) | 14 |
-| Модулей | 11 |
+| Модулей | 12 |
 
 ---
 
