@@ -1,0 +1,35 @@
+{
+  "title": "Почему 98% руководителей управляют людьми вслепую — и что с этим делать в 2026 году",
+  "author": "Ольга Осипова",
+  "authorRole": "HR-эксперт, предприниматель, соавтор книги «HR-маркетинг»",
+  "date": "2026-03-13",
+  "wordCount": 2004,
+  "targetAudience": "HR-директора, HRD, HRBP, руководители",
+  "targetPublication": "VC.ru",
+  "language": "ru-RU",
+  "articleType": "opinion-piece",
+  "format": "expert-column",
+  "status": "draft-v1",
+  "sourceType": "speech-transcript",
+  "keyTopics": [
+    "управление персоналом",
+    "мотивация сотрудников",
+    "типология Герчикова",
+    "модель SCARF",
+    "нейрофизиология в HR",
+    "гибридные команды",
+    "выгорание",
+    "HR-тренды 2026"
+  ],
+  "alternativeHeadlines": [
+    "Результат без выгорания: 2 суперинструмента и 5 привычек, которые изменят вашу команду",
+    "Я 18 лет управляю командами и создала 8 рекордных коллективов. Вот что работает в 2026 году",
+    "Формула 2026: как получать результат от команды без микроменеджмента и текучки"
+  ],
+  "files": {
+    "draft": "2026-03-13-management-practices-2026-draft-v1.md",
+    "outline": "outline.md",
+    "editorialNotes": "editorial-notes.md",
+    "metadata": "metadata.json"
+  }
+}
