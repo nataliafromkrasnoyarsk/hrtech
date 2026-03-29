@@ -5,6 +5,7 @@ agent_path: vk-hr-content-agent/.claude/agents/vk-hr-tek-seo-wizard.md
 skills:
   - vk-hr-content-agent/.claude/skills/vk-hr-tek-seo-expertise/SKILL.md
   - vk-hr-content-agent/.claude/skills/vk-hr-tek-knowledge/SKILL.md
+  - vk-hr-content-agent/.claude/skills/vk-hr-tek-seo-examples/SKILL.md
 ---
 
 # SEO Article Wizard — VK HR Tek
@@ -16,6 +17,7 @@ skills:
 1. Загрузи скиллы:
    - `vk-hr-tek-seo-expertise` — SEO-правила, режимы генерации, требования к контенту, запрещённые фразы, чек-лист качества
    - `vk-hr-tek-knowledge` — база знаний VK HR Tek: модули, позиционирование, аудитории, конкуренты, кейсы клиентов, рыночные данные, законодательство, спикеры, нарративы
+   - `vk-hr-tek-seo-examples` — паттерны из 5 лучших SEO-статей, прошедших редактуру: структура, лид, таблицы, CTA, мифы/ошибки, стиль экспертных цитат
 
 2. Действуй как агент `vk-hr-tek-seo-wizard` — проведи пользователя через 12 шагов:
    - Шаг 1: Тема и тип статьи (ОБЯЗАТЕЛЬНО) — обзор-сравнение, гайд, образовательная, кейс-ориентированная
