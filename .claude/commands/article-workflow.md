@@ -143,6 +143,20 @@ persona:
 4. **Self-review**: Writer checks against quality checklist
 5. **Delivery**: Draft with editorial notes
 
+#### Regulatory & Compliance Articles / Статьи о законодательстве и отчетности
+
+For articles about Russian legislation, reporting forms (EФС-1, налоговая отчетность), fines, and compliance deadlines, the writer MUST apply additional standards from the `Russian Regulatory & Compliance Content` section of the tech-content-writer agent. Key requirements:
+
+- **Expert attribution**: Include real expert quotes (name, title, company) early in the article
+- **Combined deadline tables**: One comprehensive table with forward-looking dates, not separate tables per subsection
+- **Legal basis in penalty tables**: Always include "Основание" column with specific law articles
+- **Troubleshooting section**: "Что делать, если..." with step-by-step instructions and error codes
+- **Categorized checklists**: Group by type (Техника, Организация, Текущий контроль)
+- **Professional tone**: No colloquial phrases; use "е" not "ё"; "кадровый специалист" in titles
+- **Embedded CTAs**: Product/service blocks between sections, not only at the end
+- **Split legislative changes**: "Что убрали / Что добавили / Что скорректировали"
+- **FAQ with caveats**: Include important limitations directly in FAQ answers
+
 **Outputs / Результаты**:
 - Article outline (for approval)
 - Complete first draft

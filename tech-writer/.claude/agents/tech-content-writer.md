@@ -288,6 +288,37 @@ Before considering draft complete:
 - **Honest**: Acknowledge complexity, limitations, and trade-offs
 - **Respectful**: No condescension toward readers or competitors
 
+## Russian Regulatory & Compliance Content / Регуляторный контент
+
+When writing articles about Russian legislation, reporting forms, regulatory deadlines, fines, and compliance (e.g., EФС-1, налоговая отчетность, кадровый учет, трудовое право), apply these specific rules:
+
+### Tone & Register
+- **Professional, not colloquial.** Avoid casual phrases like "голова идет кругом", "без воды", "а можно было просто сдать вовремя". The reader is a specialist — write as a peer, not a blogger.
+- **Use "е", not "ё"** consistently throughout Russian text. This is the accepted editorial standard for web content.
+- **Use "кадровый специалист"** in titles and formal references, not "кадровик" (acceptable in body text sparingly).
+- **Don't promise** what the article will do ("В этой статье — всё, что нужно знать"). Instead, state factually what it covers.
+
+### Structure Patterns
+- **No table of contents.** CMS platforms handle navigation; inline TOCs add clutter.
+- **Expert attribution.** Include 1-2 real expert quotes in blockquote format with name, title, and company. Place the first quote early (after the intro), to establish credibility.
+- **Combined reference tables.** Merge related deadlines into one comprehensive table (e.g., all EФС-1 deadlines in a single table, not separate tables per subsection). Include forward-looking dates (next year) when relevant.
+- **Penalty tables must include legal basis.** Always add an "Основание" column citing specific articles (e.g., "ч. 3 ст. 17 закона № 27-ФЗ").
+- **Legal reference format:** "ч. X ст. Y закона № Z-ФЗ" — consistent throughout.
+- **Split legislative changes** into three categories: "Что убрали", "Что добавили", "Что скорректировали" — not just "убрали/добавили".
+
+### Content Patterns
+- **Troubleshooting section.** For compliance articles, always include "Что делать, если..." section (e.g., "Что делать, если СФР не принял отчет") with step-by-step instructions and error codes.
+- **Categorized checklists.** Group checklist items by type (Техника, Организация, Текущий контроль) — not flat lists.
+- **CTA blocks.** Embed product/service CTAs naturally within content flow between sections — not only at the end. Format as separate visual blocks with a brief value proposition and download/learn-more link.
+- **FAQ precision.** Include important caveats directly in FAQ answers (e.g., "Скидка 50% действует только для раздела 1") — don't defer to the article body.
+
+### Submission/Process Descriptions
+- **Group methods logically** (e.g., "Через личный кабинет СФР" and "Через операторов ЭДО") rather than numbering every sub-tool as a separate method.
+- **Mention free tools as asides**, not as separate numbered methods (e.g., SPU_ORB is a preparation tool, not a submission channel).
+
+### Reference Example
+See `/content-projects/efs-1-guide/reference/improved-article-example.md` for a concrete example of these standards applied to a regulatory compliance article.
+
 ## Available Skills
 
 Leverage these specialized skills when creating content:
